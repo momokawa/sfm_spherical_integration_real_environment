@@ -1,4 +1,4 @@
-function calibrate_laser_plane_by_environment(img_laser, T, vert, hori, debug)
+function calibrate_laser_plane_by_environment(img_laser, mask, T, vert, hori, debug)
     % T: extrintic param from cam to plane
     % environement
     
@@ -16,12 +16,12 @@ function calibrate_laser_plane_by_environment(img_laser, T, vert, hori, debug)
     % 4 ----- 3
     % 1: the origin of the coordinate
     disp('extract_extract_laser_points_on_planes()...');
-    points_w = extract_laser_points_on_planes(img_laser, T, vert, hori,debug); % TODO need to set by hands
+    points_w = extract_laser_points_on_planes(img_laser, mask, T, vert, hori,debug); % TODO need to set by hands
     disp('find_laser_normal_vec()....');
     n = find_laser_normal_vec();
 end
 
-function points_w = extract_laser_points_on_planes(img, T, vert, hori, debug)
+function points_w = extract_laser_points_on_planes(img, mask, T, vert, hori, debug)
     % Calibrate laser using 4 planes in the environments
     load mat/setup.mat
     img = img(:,:,setup.color_lsm);
@@ -104,7 +104,7 @@ function RLCalc = getRLcalc(img_size)
 
     RLCalc_2 = struct(...
         'Start', 218, ... % サンプリング開始�?
-        'End', 320, ... % サンプリング終�?�?
+        'End', 330, ... % サンプリング終�?�?
         'Step', 0.1, ... % サンプリングス�?�?プ�?
         'CenterX', img_size(2)/2, ... % サンプリング中�?点X座�?
         'CenterY',img_size(1)/2, ... % サンプリング中�?点Y座�?
@@ -119,7 +119,7 @@ function RLCalc = getRLcalc(img_size)
 
     % 3. right side plane: x=hori
     RLCalc_3 = struct(...
-        'Start', 328, ... % サンプリング開始�?
+        'Start', 335, ... % サンプリング開始�?
         'End', 395, ... % サンプリング終�?�?
         'Step', 0.1, ... % サンプリングス�?�?プ�?
         'CenterX', img_size(2)/2, ... % サンプリング中�?点X座�?
