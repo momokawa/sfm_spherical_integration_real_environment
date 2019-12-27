@@ -7,6 +7,5 @@ function main()
     make_laser();
     make_laser_points_2d();
     make_laser_points_3d();
-    
     make_true_trans();
 end
