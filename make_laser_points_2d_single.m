@@ -43,7 +43,7 @@ function points_d2 = make_laser_points_2d_single(img, M, debug, i)
         plot(L2(:,1), L2(:,2), 'red');
         drawnow
         if (save_img) && i==1
-            num = pad(num2str(i),5,'left','0');
+            num = pad(num2str(i-1),5,'left','0');
             str  = sprintf('%sdetected_lasers/S%s.jpg', setup.img_laser_dir, num);
             saveas(gcf, str);
         end
