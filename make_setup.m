@@ -1,6 +1,8 @@
 function make_setup()
     setup = struct( ...
-        'color_lsm', 2 ... % Color plane used for light-section method
+        'color_lsm', 2, ... % Color plane used for light-section method
+        'mask_dir', '/home/momoko/Documents/research_programs/20191224_experiment/images/mask/', ...
+        'img_laser_dir', '/home/momoko/Documents/research_programs/20191224_experiment/images/laser_detection/' ...
     );
     save mat/setup.mat setup
 end
