@@ -14,7 +14,7 @@ def main():
     eng = matlab.engine.start_matlab()
 
     # calibration, extraction of laser, generation of true translation
-    eng.mmain(nargout=0)
+    eng.main(nargout=0)
 
     eng.make_sfm_output(nargout=0) # TODO
     eng.get_spherical_openmvg_pcloud(nargout=0) # Generate pcloud of openmvg 1st cam based spherical coordinate # TODO
