@@ -1,7 +1,20 @@
-*.jpeg
-*.jpg
+# ignore image
 *.png
+*.exr
+*.jpg
 *.csv
-*.*~
+openMVG_output/
+__pycache__/
+*.pyc
 *.mat
+*.m~
+*.bin
+.ipynb_checkpoints/
+*.ipynb
+*.json
+*.ply
+*.csv*
+.vscode/*
+pcl/build/*
+*.pcdj
 *.xcf
