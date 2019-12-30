@@ -1,10 +1,11 @@
 #!/bin/bash
-top_dir="/home/momoko/Documents/research_programs/blender_simulation_spherical_lightsection/my_code/"
-dataset="${top_dir}blender_result/rendered_image/"
+top_dir="/home/momoko/Documents/research_programs/20191224_experiment/"
+dataset="${top_dir}images/sfm_input/"
 matches="${top_dir}openMVG_output/matches/"
 reconstruct_dir="${top_dir}openMVG_output/reconstruct/"
-init_image="S00000.png"
-secon_image="S00001.png"
+init_image"env_00000.png"
+secon_image="env_00001.png"
+# If you want to use mask, put mask.png in the same folder
 [ -d "${matches}" ] && echo "Directory exists" || mkdir -p "${matches}" \
 && [ -d "${reconstruct_dir}" ] && echo "Directory exists" || mkdir -p "${reconstruct_dir}" \
 && echo "##### main_SfMInit_ImageListing #####" \
