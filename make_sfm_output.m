@@ -68,7 +68,7 @@ function save_relation_viewid_filename(openMVG_views)
     view_list = ones(num_view,2);
     for i = 1:num_view
         view_list(i,2) = openMVG_views(i).key;
-        view_list(i,1) = sscanf(openMVG_views(i).value.ptr_wrapper.data.filename, 'S%d.jpg');
+        view_list(i,1) = sscanf(openMVG_views(i).value.ptr_wrapper.data.filename, 'env_%d.jpg');
     end
     view_list = sortrows(view_list,1);
     save mat/view_list.mat view_list

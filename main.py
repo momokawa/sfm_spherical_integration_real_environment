@@ -16,7 +16,7 @@ def main():
     # calibration, extraction of laser, generation of true translation
     eng.main(nargout=0)
 
-    eng.make_sfm_output(nargout=0) # TODO
+    eng.make_sfm_output(nargout=0) # Convert openMVG's pose into spherical thing
     eng.get_spherical_openmvg_pcloud(nargout=0) # Generate pcloud of openmvg 1st cam based spherical coordinate # TODO
     print("Create mesh from sfm pcd with 1st view, ./ply/sfm_points_spherical_1stcam.csv and save it as mesh_sfm_points_spherical_1stcam.ply. Are you done? (y/[n])")
     ans = input()
