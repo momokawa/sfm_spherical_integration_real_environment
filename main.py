@@ -22,7 +22,7 @@ def main():
     ans = input()
     if ans == 'y':
         eng.convert_csv_pcd(nargout=0)
-        find_scale_pointcloud.main() # TODO
+        find_scale_pointcloud.main()
     else:
         sys.exit()
 

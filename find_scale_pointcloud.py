@@ -188,9 +188,9 @@ def calc_d(coeffi, triangle):
     return d_square
 
 def loop(mesh, ls_pcd):
-    min_scale = 0.1
-    max_scale = 1.0
-    interval = -0.01
+    min_scale = 0.5
+    max_scale = 20
+    interval = -0.1
     best_scale = min_scale
     av_sum_dist = np.Inf
     scales = np.arange(max_scale, min_scale + interval, interval)
