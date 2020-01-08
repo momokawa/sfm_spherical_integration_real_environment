@@ -11,7 +11,7 @@ function make_laser_points_3d()
         d3 = light_section_method(laser(i).d2, h, normal);
         laser(i).d3 = d3;
         num =  pad(num2str(i-1),5,'left','0');
-        str  = sprintf('%scross_sections/d_%s.csv', setup.csv_dir, num);
+        str  = sprintf('%sspherical_cross_sections/d3_%s.csv', setup.csv_dir, num);
         fprintf("Saving %s....\n", str);
         csvwrite(str, d3);
     end

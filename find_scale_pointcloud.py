@@ -13,15 +13,26 @@ from scipy.spatial import Delaunay
 from timeit import default_timer as timer
 # from numba import jit, cuda, f8
 
-with open("./mat/directories.json", "r") as read_file:
-    data = json.load(read_file)
 
-home_dir = data['home_dir']
-integrated_cross_sections_dir = data['integrated_cross_sections_dir']
-spherical_cross_sections_dir = data['spherical_cross_sections_dir']
-openmvg_cross_sections_dir = data['openmvg_cross_sections_dir']
-openmvg_resonst_dir = data['openmvg_reconst_dir']
-# This programs for finding the real scale by comparing 2 point cloud
+home_dir= "/home/momoko/Documents/research_programs/20191224_experiment/"
+
+spherical_cross_sections_dir = home_dir + "csv/spherical_cross_sections/"
+openmvg_resonst_dir = home_dir + "openMVG_output/reconstruct/"
+integrated_cross_sections_dir = home_dir + "csv/integrated_cross_sections/"
+
+print("Generating directories....")
+directories = {'home_dir': home_dir,
+'spherical_cross_sections_dir': spherical_cross_sections_dir,
+'openmvg_reconst_dir': openmvg_resonst_dir,
+'integrated_cross_sections_dir': integrated_cross_sections_dir}
+my_json = json.dumps(directories)
+f = open("./mat/directories.json","w")
+f.write(my_json)
+f.close()
+
+home_dir = directories['home_dir']
+integrated_cross_sections_dir = directories['integrated_cross_sections_dir']
+spherical_cross_sections_dir = directories['spherical_cross_sections_dir']
 
 def save_as_csv(data,prefix):
     filename= prefix +".csv"
@@ -117,140 +128,94 @@ def change_scale_mesh(mesh, scale):
     # o3d.visualization.draw_geometries([mesh_new])
     return mesh_new
 
-def gen_new_pointcloud(scale, sfm_mesh, ls_pcd):
+def gen_new_pointcloud(scale,ls_pcd):
     # generate new sfm point cloud with scale
     # ls_pcd: ligit section method point cloud
     print("Generating new point cloud and mesh with scale: " + str(scale))
-    sfm_mesh_new = change_scale_mesh(sfm_mesh, scale)
+    # sfm_mesh_new = change_scale_mesh(sfm_mesh, scale)
     ls_pcd_new = change_scale_lightsection(ls_pcd, scale)
-    print("Done\n\n")
-    return sfm_mesh_new, ls_pcd_new
+    print("Done")
+    return ls_pcd_new
 
-#def is_inside_triangle_plane(t1, t2, t3, p):
-#    # ti: the three triangle corners
-#    # p: the point to be checked whether it is inside of triangle
-#    c1 = np.cross((p-t1), (t2-t1))
-#    c2 = np.cross((p-t2), (t3-t2))
-#    c3 = np.cross((p-t3), (t1-t3))
-#
-#    if (np.dot(c1,c2)>0 and np.dot(c1,c3) >0 ):
-#        is_inside = True
-#    else:
-#        is_inside = False
-#    
-#    return is_inside
-
-
-def in_hull(p, hull):
-    """
-    Test if points in `p` are in `hull`
-
-    `p` should be a `NxK` coordinates of `N` points in `K` dimensions
-    `hull` is either a scipy.spatial.Delaunay object or the `MxK` array of the 
-    coordinates of `M` points in `K`dimensions for which Delaunay triangulation
-    will be computed
-    """
-
-    if not isinstance(hull,Delaunay):
-        hull = Delaunay(hull)
-
-    return hull.find_simplex(p)>=0
-
-def get_scales_candi(numerator, points, normals):
-    # Adopt points whose scales are potive
-    # scales: the scale, for each light-section point ray, which crosses the triangle plane
-    denom = cp.diag(cp.dot(normals, points))
-    scales = numerator / denom
-    positive_index = cp.asnumpy(cp.where(scales>0)[0])
-    scales = cp.asnumpy(scales)
-    return positive_index, scales
-
-
-def define_triangle_region(tmp_vertices):
-    bottom = 0.5
-    top = 1.5
-    hull_vertics = np.vstack((bottom*tmp_vertices[0,:], bottom*tmp_vertices[1,:], bottom*tmp_vertices[2,:], top*tmp_vertices[0,:], top*tmp_vertices[1,:], top*tmp_vertices[2,:]))
-    return hull_vertics
-
-
-def dist_triangle2pcd(mesh, pcd):
-    print("Calclating distance from triangles to points...")
-    # s = (n_j*n_j^T) / (n_j)*(r_i)^T
-    # This function calculate distance from each point from pcd to the nearest triangle of mesh
-
-    # Mesh info
-    mesh.compute_triangle_normals() # Updte normal vector of mesh
-    normals = cp.asarray(mesh.triangle_normals) # normal vectors of triangle plane
-    points_mesh = np.asarray(mesh.vertices) # points location of mesh
-    index_triangle_vertices = np.asarray(mesh.triangles) # the index of vertices of triangles in the mesh obj
-
-    # Cross sections info
-    points_pcd = pcd.integrated_points # point location of lightsection pcd
-    n_triangle = normals.shape[0] # num of triangles in mesh
-    n_pcd = points_pcd.shape[0] # num of point in lightsection pcd
-
-    
-    print("The num of lightsection points: " + str(n_pcd))
-    print("The num of triangles: " + str(n_triangle))
-
-    numerator = cp.diag(cp.dot(normals, normals.T))
-    print("numerator shape: "+ str(numerator.shape))
-
-    (sum_dist, cnt) = dist_triangle2pcd_(n_pcd, points_pcd, n_triangle, numerator, normals, index_triangle_vertices, points_mesh)
-
-    return sum_dist, cnt
-
-def dist_triangle2pcd_(n_pcd, points_pcd, n_triangle, numerator, normals, index_triangle_vertices, points_mesh):
-    sum_dist = 0.0
+def calc_D_mesh2cpoints(invA, A, c_points, n_M, n_c):
+    # D = summed d_j
+    # A = [a, b, c] three corners of the triangle
+    Ds = cp.zeros(n_M)
     cnt = 0
-    step = 500
-    for i in range(0,n_pcd,step):
-        # print(str(i)+"th lightsection point...")
-        p = cp.tile(points_pcd[i,:], (n_triangle,1)).T # rshape (3,n_triangle)
-        # n_j * r_i^T
-        (positive_index, scales) = get_scales_candi(numerator, p, normals)
-        for j in positive_index: # As for valid triangle plane
+    rs_init = c_points.T
+    rs = rs_init
 
-            tmp_index = index_triangle_vertices[j,:]
+    for j in range(n_M):
+        coefficient = cp.matmul(invA[:,:,j], rs)
+        triangle = A[:,:,j] # [a,b,c]
+        pos = coefficient > 0
+        crossing_index = cp.multiply(cp.multiply(pos[0,:],pos[1,:]),pos[2,:]) # 要素積
+        a = cp.where(crossing_index==True) # メッシュ交差してるr_i判定 #このaが変なtypeで帰ってくるの.....だからbをいれる
+        if np.size(a) == 0:
+            continue # skip this mesh
+        # print(j,"th")
+        # cnt += 1
+        b = a[0]
+        index = b[0] # 採用したr_iのindex i 一番はやいindexのやつを使う
+        coeffi = coefficient[:, index] # alpha, beta, gamma
+        # Calcualte d_j
+        d_j = calc_d(coeffi, triangle)
+        # Dに足す
+        Ds[j] = d_j
+        cnt += 1
+        del coefficient, triangle, pos, crossing_index, a, index, d_j
+    D = cp.sum(Ds)
+    return D,  cnt
 
-            # hull vertics
-            tmp_vertices = points_mesh[tmp_index, :] # sfm points which consist the triangle 
-            hull_vertics = define_triangle_region(tmp_vertices)
-            
-            tmp_scale = scales[j]
-            tmp_p = tmp_scale*points_pcd[i,:]
-            
-            if in_hull(tmp_p, hull_vertics):
-                # Return wheter the point is on and inside the triagle mesh
-                length = cp.linalg.norm(cp.asarray(tmp_p))
-                sum_dist += cp.abs(length * (tmp_scale - 1))
-                cnt += 1
-            
-    print("The lightsection points which have crossing mesh triangle: " + str(cnt) + "\n")
-    print("Out of  all lightsection points: " + str(n_pcd))
-    print("The num of triangles: " + str(n_triangle))
+def calc_A(mesh_points, mesh_index_triangle_vertices, n_M):
+    A = cp.zeros((3,3,n_M))
+    invA = cp.zeros((3,3,n_M))
 
-    return sum_dist, cnt
+    for i in range(n_M):
+        index = mesh_index_triangle_vertices[i,:]
+        triangle = mesh_points[index,:]
+        A[:,:,i] = triangle.T
+        invA[:,:,i] = cp.linalg.inv(triangle.T)
+
+    return A, invA
+
+def calc_d(coeffi, triangle):
+    # Caculate norm(d)^2
+    a = coeffi[0]*triangle[:,0] + coeffi[1]*triangle[:,1] + coeffi[2]*triangle[:,2]
+    b = cp.sqrt(cp.square(coeffi[0])+cp.square(coeffi[1])+cp.square(coeffi[2]))
+    inside =  a - ( a / b )
+    d_square = cp.square(cp.linalg.norm(inside))
+    return d_square
 
 def loop(mesh, ls_pcd):
     min_scale = 0.1
-    max_scale = 0.4
-    interval = -0.02
+    max_scale = 1.0
+    interval = -0.01
     best_scale = min_scale
     av_sum_dist = np.Inf
     scales = np.arange(max_scale, min_scale + interval, interval)
+    mesh_index_triangle_vertices = cp.asarray(mesh.triangles)
+    mesh_points_init = cp.asarray(mesh.vertices)
+    n_M = mesh_index_triangle_vertices.shape[0] # number of mesh triangle
+    n_c = ls_pcd.n_all_p # number of points of cross sections
+    print("n_M: ", n_M, "\n")
+    print("n_c: ", n_c, "\n")
+    (A, invA) = calc_A(mesh_points_init, mesh_index_triangle_vertices, n_M)
+
     print(scales)
     for current_scale in scales:
-        print("========= \n Current scale: " + str(current_scale))
-        (current_sfm_mesh, current_ls_pcd) = gen_new_pointcloud(current_scale, mesh, ls_pcd)
-        (current_sum_dist, cnt) = dist_triangle2pcd(current_sfm_mesh, current_ls_pcd)
-        av_current_sum_dist = current_sum_dist / cnt
-        print("Current sum_dist: ", current_sum_dist, " Current cnt: ", cnt, " Current av_sum_dist:", av_current_sum_dist)
-
+        print("========= Current scale: " + str(current_scale), "=========")
+        current_ls_pcd = gen_new_pointcloud(current_scale, ls_pcd)
+        c_points = cp.asarray(current_ls_pcd.integrated_points) # cross sections points
+        # (current_sum_dist, cnt) = dist_triangle2pcd(current_sfm_mesh, current_ls_pcd)
+        (D_current, cnt) = calc_D_mesh2cpoints(invA/current_scale, current_scale*A, c_points, n_M, n_c)
+        av_current_sum_dist = D_current / cnt
+        print("Current sum_dist: ", D_current, " Current cnt: ", cnt, " Current av_sum_dist:", av_current_sum_dist)
         if av_current_sum_dist < av_sum_dist:
             av_sum_dist = av_current_sum_dist
             best_scale = current_scale
-            print("Update best scale!: " ,best_scale, "\nsum_dist:" ,current_sum_dist,  " cnt: " , cnt, "av_sum_dist: ", av_sum_dist,  "\n")
+            save_as_csv(current_ls_pcd.integrated_points, "./csv/integrated_cross_sections/all_integrated_best_scale")
+            print("Update best scale!: " ,best_scale, " sum_dist:" , D_current ,  " cnt: " , cnt, "av_sum_dist: ", av_sum_dist)
 
 
     return best_scale, av_sum_dist
@@ -269,7 +234,7 @@ def main():
     (best_scale, av_sum_dist) = loop(mesh, ls_pcd)
     print("Best scale is: ", best_scale, " av_sum_dist: ", av_sum_dist)
     print("Calculation time:", timer()-start)
-    
+    save_as_csv(best_scale, "./csv/best_scale")
 
 if __name__ == "__main__":
     main()
