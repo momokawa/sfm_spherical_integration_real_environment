@@ -1,0 +1,826 @@
+Generating directories....
+Start finding best scale....
+Generating point cloud from cross_sectional shapes in /home/momoko/Documents/research_programs/20191224_experiment/csv/spherical_cross_sections/
+Size of cross_sections:31
+Reading estimated T matrix from /home/momoko/Documents/research_programs/20191224_experiment/mat/sfm_est_T_spherical.mat
+Generating initial point cloud of cross-sections.... 
+
+Done 
+
+
+n_M:  92740 
+
+n_c:  49933 
+
+[20.  19.9 19.8 19.7 19.6 19.5 19.4 19.3 19.2 19.1 19.  18.9 18.8 18.7
+ 18.6 18.5 18.4 18.3 18.2 18.1 18.  17.9 17.8 17.7 17.6 17.5 17.4 17.3
+ 17.2 17.1 17.  16.9 16.8 16.7 16.6 16.5 16.4 16.3 16.2 16.1 16.  15.9
+ 15.8 15.7 15.6 15.5 15.4 15.3 15.2 15.1 15.  14.9 14.8 14.7 14.6 14.5
+ 14.4 14.3 14.2 14.1 14.  13.9 13.8 13.7 13.6 13.5 13.4 13.3 13.2 13.1
+ 13.  12.9 12.8 12.7 12.6 12.5 12.4 12.3 12.2 12.1 12.  11.9 11.8 11.7
+ 11.6 11.5 11.4 11.3 11.2 11.1 11.  10.9 10.8 10.7 10.6 10.5 10.4 10.3
+ 10.2 10.1 10.   9.9  9.8  9.7  9.6  9.5  9.4  9.3  9.2  9.1  9.   8.9
+  8.8  8.7  8.6  8.5  8.4  8.3  8.2  8.1  8.   7.9  7.8  7.7  7.6  7.5
+  7.4  7.3  7.2  7.1  7.   6.9  6.8  6.7  6.6  6.5  6.4  6.3  6.2  6.1
+  6.   5.9  5.8  5.7  5.6  5.5  5.4  5.3  5.2  5.1  5.   4.9  4.8  4.7
+  4.6  4.5  4.4  4.3  4.2  4.1  4.   3.9  3.8  3.7  3.6  3.5  3.4  3.3
+  3.2  3.1  3.   2.9  2.8  2.7  2.6  2.5  2.4  2.3  2.2  2.1  2.   1.9
+  1.8  1.7  1.6  1.5  1.4  1.3  1.2  1.1  1.   0.9  0.8  0.7  0.6  0.5]
+========= Current scale: 20.0 =========
+Generating new point cloud and mesh with scale: 20.0
+Done
+Current sum_dist:  60004628650.39091  Current cnt:  11012  Current av_sum_dist: 5449021.853468117
+Update best scale!:  20.0  sum_dist: 60004628650.39091  cnt:  11012 av_sum_dist:  5449021.853468117
+========= Current scale: 19.9 =========
+Generating new point cloud and mesh with scale: 19.9
+Done
+Current sum_dist:  60059687486.26988  Current cnt:  11028  Current av_sum_dist: 5446108.767344023
+Update best scale!:  19.9  sum_dist: 60059687486.26988  cnt:  11028 av_sum_dist:  5446108.767344023
+========= Current scale: 19.799999999999997 =========
+Generating new point cloud and mesh with scale: 19.799999999999997
+Done
+Current sum_dist:  60135736351.35154  Current cnt:  11041  Current av_sum_dist: 5446584.218037455
+========= Current scale: 19.699999999999996 =========
+Generating new point cloud and mesh with scale: 19.699999999999996
+Done
+Current sum_dist:  60157188944.72512  Current cnt:  11036  Current av_sum_dist: 5450995.736201987
+========= Current scale: 19.599999999999994 =========
+Generating new point cloud and mesh with scale: 19.599999999999994
+Done
+Current sum_dist:  60170670851.79901  Current cnt:  11031  Current av_sum_dist: 5454688.682059561
+========= Current scale: 19.499999999999993 =========
+Generating new point cloud and mesh with scale: 19.499999999999993
+Done
+Current sum_dist:  60207912478.31202  Current cnt:  11041  Current av_sum_dist: 5453121.318568247
+========= Current scale: 19.39999999999999 =========
+Generating new point cloud and mesh with scale: 19.39999999999999
+Done
+Current sum_dist:  60197442845.65566  Current cnt:  11034  Current av_sum_dist: 5455631.9417849975
+========= Current scale: 19.29999999999999 =========
+Generating new point cloud and mesh with scale: 19.29999999999999
+Done
+Current sum_dist:  60156548309.726524  Current cnt:  11017  Current av_sum_dist: 5460338.414244034
+========= Current scale: 19.19999999999999 =========
+Generating new point cloud and mesh with scale: 19.19999999999999
+Done
+Current sum_dist:  60162485417.469574  Current cnt:  11017  Current av_sum_dist: 5460877.318459614
+========= Current scale: 19.099999999999987 =========
+Generating new point cloud and mesh with scale: 19.099999999999987
+Done
+Current sum_dist:  60162069505.602264  Current cnt:  11017  Current av_sum_dist: 5460839.5666335905
+========= Current scale: 18.999999999999986 =========
+Generating new point cloud and mesh with scale: 18.999999999999986
+Done
+Current sum_dist:  60163380671.65787  Current cnt:  11017  Current av_sum_dist: 5460958.579618578
+========= Current scale: 18.899999999999984 =========
+Generating new point cloud and mesh with scale: 18.899999999999984
+Done
+Current sum_dist:  60279731540.10892  Current cnt:  11020  Current av_sum_dist: 5470030.085309339
+========= Current scale: 18.799999999999983 =========
+Generating new point cloud and mesh with scale: 18.799999999999983
+Done
+Current sum_dist:  60325368694.2838  Current cnt:  11024  Current av_sum_dist: 5472185.113777558
+========= Current scale: 18.69999999999998 =========
+Generating new point cloud and mesh with scale: 18.69999999999998
+Done
+Current sum_dist:  60357080115.847595  Current cnt:  11019  Current av_sum_dist: 5477546.067324403
+========= Current scale: 18.59999999999998 =========
+Generating new point cloud and mesh with scale: 18.59999999999998
+Done
+Current sum_dist:  60370534011.75058  Current cnt:  11025  Current av_sum_dist: 5475785.397891209
+========= Current scale: 18.49999999999998 =========
+Generating new point cloud and mesh with scale: 18.49999999999998
+Done
+Current sum_dist:  60387338388.47438  Current cnt:  11025  Current av_sum_dist: 5477309.604396769
+========= Current scale: 18.399999999999977 =========
+Generating new point cloud and mesh with scale: 18.399999999999977
+Done
+Current sum_dist:  60432573032.03255  Current cnt:  11034  Current av_sum_dist: 5476941.547220641
+========= Current scale: 18.299999999999976 =========
+Generating new point cloud and mesh with scale: 18.299999999999976
+Done
+Current sum_dist:  60416696964.1812  Current cnt:  11033  Current av_sum_dist: 5475998.999744512
+========= Current scale: 18.199999999999974 =========
+Generating new point cloud and mesh with scale: 18.199999999999974
+Done
+Current sum_dist:  60437180731.17534  Current cnt:  11031  Current av_sum_dist: 5478848.7654043455
+========= Current scale: 18.099999999999973 =========
+Generating new point cloud and mesh with scale: 18.099999999999973
+Done
+Current sum_dist:  60502103981.37998  Current cnt:  11034  Current av_sum_dist: 5483243.065196663
+========= Current scale: 17.99999999999997 =========
+Generating new point cloud and mesh with scale: 17.99999999999997
+Done
+Current sum_dist:  60481955087.234985  Current cnt:  11034  Current av_sum_dist: 5481416.991774061
+========= Current scale: 17.89999999999997 =========
+Generating new point cloud and mesh with scale: 17.89999999999997
+Done
+Current sum_dist:  61451767103.04218  Current cnt:  11029  Current av_sum_dist: 5571834.8991787275
+========= Current scale: 17.79999999999997 =========
+Generating new point cloud and mesh with scale: 17.79999999999997
+Done
+Current sum_dist:  61436611139.19058  Current cnt:  11029  Current av_sum_dist: 5570460.707153013
+========= Current scale: 17.699999999999967 =========
+Generating new point cloud and mesh with scale: 17.699999999999967
+Done
+Current sum_dist:  61432304525.74717  Current cnt:  11026  Current av_sum_dist: 5571585.754194374
+========= Current scale: 17.599999999999966 =========
+Generating new point cloud and mesh with scale: 17.599999999999966
+Done
+Current sum_dist:  61453705461.142166  Current cnt:  11025  Current av_sum_dist: 5574032.241373439
+========= Current scale: 17.499999999999964 =========
+Generating new point cloud and mesh with scale: 17.499999999999964
+Done
+Current sum_dist:  61545863575.91108  Current cnt:  11023  Current av_sum_dist: 5583404.116475649
+========= Current scale: 17.399999999999963 =========
+Generating new point cloud and mesh with scale: 17.399999999999963
+Done
+Current sum_dist:  61520449791.70956  Current cnt:  11019  Current av_sum_dist: 5583124.584055682
+========= Current scale: 17.29999999999996 =========
+Generating new point cloud and mesh with scale: 17.29999999999996
+Done
+Current sum_dist:  61586477099.54018  Current cnt:  11023  Current av_sum_dist: 5587088.551169389
+========= Current scale: 17.19999999999996 =========
+Generating new point cloud and mesh with scale: 17.19999999999996
+Done
+Current sum_dist:  61681688580.83324  Current cnt:  11031  Current av_sum_dist: 5591667.897818261
+========= Current scale: 17.09999999999996 =========
+Generating new point cloud and mesh with scale: 17.09999999999996
+Done
+Current sum_dist:  61697991511.73593  Current cnt:  11032  Current av_sum_dist: 5592638.824486578
+========= Current scale: 16.999999999999957 =========
+Generating new point cloud and mesh with scale: 16.999999999999957
+Done
+Current sum_dist:  61713555356.10597  Current cnt:  11033  Current av_sum_dist: 5593542.586432155
+========= Current scale: 16.899999999999956 =========
+Generating new point cloud and mesh with scale: 16.899999999999956
+Done
+Current sum_dist:  61785729020.56993  Current cnt:  11042  Current av_sum_dist: 5595519.744663098
+========= Current scale: 16.799999999999955 =========
+Generating new point cloud and mesh with scale: 16.799999999999955
+Done
+Current sum_dist:  61748395412.29532  Current cnt:  11038  Current av_sum_dist: 5594165.194083649
+========= Current scale: 16.699999999999953 =========
+Generating new point cloud and mesh with scale: 16.699999999999953
+Done
+Current sum_dist:  61734324782.318405  Current cnt:  11048  Current av_sum_dist: 5587828.093982477
+========= Current scale: 16.59999999999995 =========
+Generating new point cloud and mesh with scale: 16.59999999999995
+Done
+Current sum_dist:  61709733819.18347  Current cnt:  11045  Current av_sum_dist: 5587119.404181392
+========= Current scale: 16.49999999999995 =========
+Generating new point cloud and mesh with scale: 16.49999999999995
+Done
+Current sum_dist:  61757828037.7086  Current cnt:  11033  Current av_sum_dist: 5597555.337415807
+========= Current scale: 16.39999999999995 =========
+Generating new point cloud and mesh with scale: 16.39999999999995
+Done
+Current sum_dist:  61791314649.06271  Current cnt:  11043  Current av_sum_dist: 5595518.848959767
+========= Current scale: 16.299999999999947 =========
+Generating new point cloud and mesh with scale: 16.299999999999947
+Done
+Current sum_dist:  61800878956.95202  Current cnt:  11036  Current av_sum_dist: 5599934.664457413
+========= Current scale: 16.199999999999946 =========
+Generating new point cloud and mesh with scale: 16.199999999999946
+Done
+Current sum_dist:  61791234036.50934  Current cnt:  11052  Current av_sum_dist: 5590954.943585716
+========= Current scale: 16.099999999999945 =========
+Generating new point cloud and mesh with scale: 16.099999999999945
+Done
+Current sum_dist:  61815057301.1676  Current cnt:  11049  Current av_sum_dist: 5594629.1339639425
+========= Current scale: 15.999999999999943 =========
+Generating new point cloud and mesh with scale: 15.999999999999943
+Done
+Current sum_dist:  61847174283.27418  Current cnt:  11053  Current av_sum_dist: 5595510.203860869
+========= Current scale: 15.899999999999942 =========
+Generating new point cloud and mesh with scale: 15.899999999999942
+Done
+Current sum_dist:  61788308147.234024  Current cnt:  11038  Current av_sum_dist: 5597781.133106906
+========= Current scale: 15.79999999999994 =========
+Generating new point cloud and mesh with scale: 15.79999999999994
+Done
+Current sum_dist:  61854929916.86098  Current cnt:  11049  Current av_sum_dist: 5598237.842054573
+========= Current scale: 15.699999999999939 =========
+Generating new point cloud and mesh with scale: 15.699999999999939
+Done
+Current sum_dist:  61861694397.22098  Current cnt:  11050  Current av_sum_dist: 5598343.38436389
+========= Current scale: 15.599999999999937 =========
+Generating new point cloud and mesh with scale: 15.599999999999937
+Done
+Current sum_dist:  61874281333.71037  Current cnt:  11030  Current av_sum_dist: 5609635.660354521
+========= Current scale: 15.499999999999936 =========
+Generating new point cloud and mesh with scale: 15.499999999999936
+Done
+Current sum_dist:  61881406198.61124  Current cnt:  11030  Current av_sum_dist: 5610281.613654691
+========= Current scale: 15.399999999999935 =========
+Generating new point cloud and mesh with scale: 15.399999999999935
+Done
+Current sum_dist:  61948448867.13442  Current cnt:  11044  Current av_sum_dist: 5609240.208903877
+========= Current scale: 15.299999999999933 =========
+Generating new point cloud and mesh with scale: 15.299999999999933
+Done
+Current sum_dist:  61983017273.21603  Current cnt:  11046  Current av_sum_dist: 5611354.08955423
+========= Current scale: 15.199999999999932 =========
+Generating new point cloud and mesh with scale: 15.199999999999932
+Done
+Current sum_dist:  61991503284.977905  Current cnt:  11033  Current av_sum_dist: 5618735.002717113
+========= Current scale: 15.09999999999993 =========
+Generating new point cloud and mesh with scale: 15.09999999999993
+Done
+Current sum_dist:  61996688154.003494  Current cnt:  11021  Current av_sum_dist: 5625323.305870928
+========= Current scale: 14.999999999999929 =========
+Generating new point cloud and mesh with scale: 14.999999999999929
+Done
+Current sum_dist:  61885073174.340836  Current cnt:  11009  Current av_sum_dist: 5621316.484180292
+========= Current scale: 14.899999999999928 =========
+Generating new point cloud and mesh with scale: 14.899999999999928
+Done
+Current sum_dist:  61883663773.063354  Current cnt:  10999  Current av_sum_dist: 5626299.097469166
+========= Current scale: 14.799999999999926 =========
+Generating new point cloud and mesh with scale: 14.799999999999926
+Done
+Current sum_dist:  61973059570.58632  Current cnt:  11014  Current av_sum_dist: 5626753.184182524
+========= Current scale: 14.699999999999925 =========
+Generating new point cloud and mesh with scale: 14.699999999999925
+Done
+Current sum_dist:  62064075878.37105  Current cnt:  11016  Current av_sum_dist: 5633993.816119377
+========= Current scale: 14.599999999999923 =========
+Generating new point cloud and mesh with scale: 14.599999999999923
+Done
+Current sum_dist:  62105794156.95216  Current cnt:  11020  Current av_sum_dist: 5635734.497001104
+========= Current scale: 14.499999999999922 =========
+Generating new point cloud and mesh with scale: 14.499999999999922
+Done
+Current sum_dist:  62239504932.37917  Current cnt:  11025  Current av_sum_dist: 5645306.5698303105
+========= Current scale: 14.39999999999992 =========
+Generating new point cloud and mesh with scale: 14.39999999999992
+Done
+Current sum_dist:  62127794010.80804  Current cnt:  11018  Current av_sum_dist: 5638754.221347616
+========= Current scale: 14.299999999999919 =========
+Generating new point cloud and mesh with scale: 14.299999999999919
+Done
+Current sum_dist:  62035740434.25664  Current cnt:  11003  Current av_sum_dist: 5638075.109902448
+========= Current scale: 14.199999999999918 =========
+Generating new point cloud and mesh with scale: 14.199999999999918
+Done
+Current sum_dist:  62016128742.549194  Current cnt:  10990  Current av_sum_dist: 5642959.84918555
+========= Current scale: 14.099999999999916 =========
+Generating new point cloud and mesh with scale: 14.099999999999916
+Done
+Current sum_dist:  62021540419.864716  Current cnt:  10982  Current av_sum_dist: 5647563.323608151
+========= Current scale: 13.999999999999915 =========
+Generating new point cloud and mesh with scale: 13.999999999999915
+Done
+Current sum_dist:  62052894252.531235  Current cnt:  10987  Current av_sum_dist: 5647846.932969076
+========= Current scale: 13.899999999999913 =========
+Generating new point cloud and mesh with scale: 13.899999999999913
+Done
+Current sum_dist:  62051286082.44052  Current cnt:  10983  Current av_sum_dist: 5649757.45082769
+========= Current scale: 13.799999999999912 =========
+Generating new point cloud and mesh with scale: 13.799999999999912
+Done
+Current sum_dist:  62119225184.87198  Current cnt:  10978  Current av_sum_dist: 5658519.328190196
+========= Current scale: 13.69999999999991 =========
+Generating new point cloud and mesh with scale: 13.69999999999991
+Done
+Current sum_dist:  62163528929.32909  Current cnt:  10986  Current av_sum_dist: 5658431.542811677
+========= Current scale: 13.599999999999909 =========
+Generating new point cloud and mesh with scale: 13.599999999999909
+Done
+Current sum_dist:  62159237603.34238  Current cnt:  11005  Current av_sum_dist: 5648272.3855831325
+========= Current scale: 13.499999999999908 =========
+Generating new point cloud and mesh with scale: 13.499999999999908
+Done
+Current sum_dist:  62205378547.050545  Current cnt:  11014  Current av_sum_dist: 5647846.245419515
+========= Current scale: 13.399999999999906 =========
+Generating new point cloud and mesh with scale: 13.399999999999906
+Done
+Current sum_dist:  62159391419.645  Current cnt:  11004  Current av_sum_dist: 5648799.656456288
+========= Current scale: 13.299999999999905 =========
+Generating new point cloud and mesh with scale: 13.299999999999905
+Done
+Current sum_dist:  62215978073.254105  Current cnt:  11012  Current av_sum_dist: 5649834.55078588
+========= Current scale: 13.199999999999903 =========
+Generating new point cloud and mesh with scale: 13.199999999999903
+Done
+Current sum_dist:  62231629585.2845  Current cnt:  11014  Current av_sum_dist: 5650229.669991329
+========= Current scale: 13.099999999999902 =========
+Generating new point cloud and mesh with scale: 13.099999999999902
+Done
+Current sum_dist:  62213938979.51026  Current cnt:  11003  Current av_sum_dist: 5654270.560711648
+========= Current scale: 12.9999999999999 =========
+Generating new point cloud and mesh with scale: 12.9999999999999
+Done
+Current sum_dist:  62255493641.121796  Current cnt:  11003  Current av_sum_dist: 5658047.22722183
+========= Current scale: 12.899999999999899 =========
+Generating new point cloud and mesh with scale: 12.899999999999899
+Done
+Current sum_dist:  62325497970.60007  Current cnt:  11019  Current av_sum_dist: 5656184.587585086
+========= Current scale: 12.799999999999898 =========
+Generating new point cloud and mesh with scale: 12.799999999999898
+Done
+Current sum_dist:  62372752632.01605  Current cnt:  11025  Current av_sum_dist: 5657392.528981048
+========= Current scale: 12.699999999999896 =========
+Generating new point cloud and mesh with scale: 12.699999999999896
+Done
+Current sum_dist:  62377031161.53191  Current cnt:  11015  Current av_sum_dist: 5662917.036907119
+========= Current scale: 12.599999999999895 =========
+Generating new point cloud and mesh with scale: 12.599999999999895
+Done
+Current sum_dist:  62338428327.84398  Current cnt:  11009  Current av_sum_dist: 5662496.8959800145
+========= Current scale: 12.499999999999893 =========
+Generating new point cloud and mesh with scale: 12.499999999999893
+Done
+Current sum_dist:  62267543485.975845  Current cnt:  10989  Current av_sum_dist: 5666352.123575926
+========= Current scale: 12.399999999999892 =========
+Generating new point cloud and mesh with scale: 12.399999999999892
+Done
+Current sum_dist:  62254449217.95598  Current cnt:  10987  Current av_sum_dist: 5666191.791931918
+========= Current scale: 12.29999999999989 =========
+Generating new point cloud and mesh with scale: 12.29999999999989
+Done
+Current sum_dist:  62320904059.55478  Current cnt:  11001  Current av_sum_dist: 5665021.7307112785
+========= Current scale: 12.19999999999989 =========
+Generating new point cloud and mesh with scale: 12.19999999999989
+Done
+Current sum_dist:  62308821428.57524  Current cnt:  11000  Current av_sum_dist: 5664438.311688658
+========= Current scale: 12.099999999999888 =========
+Generating new point cloud and mesh with scale: 12.099999999999888
+Done
+Current sum_dist:  62253901604.619965  Current cnt:  10996  Current av_sum_dist: 5661504.329267003
+========= Current scale: 11.999999999999886 =========
+Generating new point cloud and mesh with scale: 11.999999999999886
+Done
+Current sum_dist:  62303908171.64628  Current cnt:  10999  Current av_sum_dist: 5664506.607113944
+========= Current scale: 11.899999999999885 =========
+Generating new point cloud and mesh with scale: 11.899999999999885
+Done
+Current sum_dist:  62364427688.884285  Current cnt:  11010  Current av_sum_dist: 5664344.022605293
+========= Current scale: 11.799999999999883 =========
+Generating new point cloud and mesh with scale: 11.799999999999883
+Done
+Current sum_dist:  62428357974.7608  Current cnt:  11002  Current av_sum_dist: 5674273.584326559
+========= Current scale: 11.699999999999882 =========
+Generating new point cloud and mesh with scale: 11.699999999999882
+Done
+Current sum_dist:  62384808983.16175  Current cnt:  11011  Current av_sum_dist: 5665680.590605916
+========= Current scale: 11.59999999999988 =========
+Generating new point cloud and mesh with scale: 11.59999999999988
+Done
+Current sum_dist:  62438716023.24635  Current cnt:  11024  Current av_sum_dist: 5663889.334474452
+========= Current scale: 11.49999999999988 =========
+Generating new point cloud and mesh with scale: 11.49999999999988
+Done
+Current sum_dist:  62529079064.45924  Current cnt:  11037  Current av_sum_dist: 5665405.369616675
+========= Current scale: 11.399999999999878 =========
+Generating new point cloud and mesh with scale: 11.399999999999878
+Done
+Current sum_dist:  62569028373.527664  Current cnt:  11041  Current av_sum_dist: 5666971.141520484
+========= Current scale: 11.299999999999876 =========
+Generating new point cloud and mesh with scale: 11.299999999999876
+Done
+Current sum_dist:  62644427861.87041  Current cnt:  11051  Current av_sum_dist: 5668665.990577361
+========= Current scale: 11.199999999999875 =========
+Generating new point cloud and mesh with scale: 11.199999999999875
+Done
+Current sum_dist:  62701387933.387314  Current cnt:  11061  Current av_sum_dist: 5668690.709102913
+========= Current scale: 11.099999999999874 =========
+Generating new point cloud and mesh with scale: 11.099999999999874
+Done
+Current sum_dist:  62796654297.75081  Current cnt:  11054  Current av_sum_dist: 5680898.70614717
+========= Current scale: 10.999999999999872 =========
+Generating new point cloud and mesh with scale: 10.999999999999872
+Done
+Current sum_dist:  62781296666.101456  Current cnt:  11049  Current av_sum_dist: 5682079.524491036
+========= Current scale: 10.89999999999987 =========
+Generating new point cloud and mesh with scale: 10.89999999999987
+Done
+Current sum_dist:  62677225621.55436  Current cnt:  11045  Current av_sum_dist: 5674714.859353043
+========= Current scale: 10.79999999999987 =========
+Generating new point cloud and mesh with scale: 10.79999999999987
+Done
+Current sum_dist:  62689112271.95274  Current cnt:  11035  Current av_sum_dist: 5680934.505840756
+========= Current scale: 10.699999999999868 =========
+Generating new point cloud and mesh with scale: 10.699999999999868
+Done
+Current sum_dist:  62741277279.55085  Current cnt:  11033  Current av_sum_dist: 5686692.402750916
+========= Current scale: 10.599999999999866 =========
+Generating new point cloud and mesh with scale: 10.599999999999866
+Done
+Current sum_dist:  62787214467.0636  Current cnt:  11040  Current av_sum_dist: 5687247.687234022
+========= Current scale: 10.499999999999865 =========
+Generating new point cloud and mesh with scale: 10.499999999999865
+Done
+Current sum_dist:  62787820259.46646  Current cnt:  11042  Current av_sum_dist: 5686272.437915818
+========= Current scale: 10.399999999999864 =========
+Generating new point cloud and mesh with scale: 10.399999999999864
+Done
+Current sum_dist:  62744263073.12566  Current cnt:  11032  Current av_sum_dist: 5687478.523669839
+========= Current scale: 10.299999999999862 =========
+Generating new point cloud and mesh with scale: 10.299999999999862
+Done
+Current sum_dist:  62753222324.693146  Current cnt:  11038  Current av_sum_dist: 5685198.61611643
+========= Current scale: 10.19999999999986 =========
+Generating new point cloud and mesh with scale: 10.19999999999986
+Done
+Current sum_dist:  62836341298.37571  Current cnt:  11029  Current av_sum_dist: 5697374.313027084
+========= Current scale: 10.09999999999986 =========
+Generating new point cloud and mesh with scale: 10.09999999999986
+Done
+Current sum_dist:  62815135789.28185  Current cnt:  11014  Current av_sum_dist: 5703208.261238592
+========= Current scale: 9.999999999999858 =========
+Generating new point cloud and mesh with scale: 9.999999999999858
+Done
+Current sum_dist:  62849068802.11882  Current cnt:  11017  Current av_sum_dist: 5704735.300183246
+========= Current scale: 9.899999999999856 =========
+Generating new point cloud and mesh with scale: 9.899999999999856
+Done
+Current sum_dist:  62900994160.21684  Current cnt:  11028  Current av_sum_dist: 5703753.550980853
+========= Current scale: 9.799999999999855 =========
+Generating new point cloud and mesh with scale: 9.799999999999855
+Done
+Current sum_dist:  62916687999.742966  Current cnt:  11023  Current av_sum_dist: 5707764.492401612
+========= Current scale: 9.699999999999854 =========
+Generating new point cloud and mesh with scale: 9.699999999999854
+Done
+Current sum_dist:  62956659493.984406  Current cnt:  11035  Current av_sum_dist: 5705179.836337509
+========= Current scale: 9.599999999999852 =========
+Generating new point cloud and mesh with scale: 9.599999999999852
+Done
+Current sum_dist:  62988239456.948456  Current cnt:  11044  Current av_sum_dist: 5703390.026887763
+========= Current scale: 9.49999999999985 =========
+Generating new point cloud and mesh with scale: 9.49999999999985
+Done
+Current sum_dist:  62877487025.815094  Current cnt:  11031  Current av_sum_dist: 5700071.346733306
+========= Current scale: 9.39999999999985 =========
+Generating new point cloud and mesh with scale: 9.39999999999985
+Done
+Current sum_dist:  63007268234.44328  Current cnt:  11034  Current av_sum_dist: 5710283.508649926
+========= Current scale: 9.299999999999848 =========
+Generating new point cloud and mesh with scale: 9.299999999999848
+Done
+Current sum_dist:  63034436506.07453  Current cnt:  11044  Current av_sum_dist: 5707573.026627538
+========= Current scale: 9.199999999999847 =========
+Generating new point cloud and mesh with scale: 9.199999999999847
+Done
+Current sum_dist:  63065018479.46717  Current cnt:  11046  Current av_sum_dist: 5709308.209258299
+========= Current scale: 9.099999999999845 =========
+Generating new point cloud and mesh with scale: 9.099999999999845
+Done
+Current sum_dist:  63096056927.491776  Current cnt:  11054  Current av_sum_dist: 5707984.162067286
+========= Current scale: 8.999999999999844 =========
+Generating new point cloud and mesh with scale: 8.999999999999844
+Done
+Current sum_dist:  63108983512.3513  Current cnt:  11051  Current av_sum_dist: 5710703.421622596
+========= Current scale: 8.899999999999842 =========
+Generating new point cloud and mesh with scale: 8.899999999999842
+Done
+Current sum_dist:  63137033940.625755  Current cnt:  11056  Current av_sum_dist: 5710657.917929247
+========= Current scale: 8.79999999999984 =========
+Generating new point cloud and mesh with scale: 8.79999999999984
+Done
+Current sum_dist:  63159870341.19107  Current cnt:  11044  Current av_sum_dist: 5718930.67196587
+========= Current scale: 8.69999999999984 =========
+Generating new point cloud and mesh with scale: 8.69999999999984
+Done
+Current sum_dist:  63135655447.90762  Current cnt:  11038  Current av_sum_dist: 5719845.574189856
+========= Current scale: 8.599999999999838 =========
+Generating new point cloud and mesh with scale: 8.599999999999838
+Done
+Current sum_dist:  63199787236.16024  Current cnt:  11050  Current av_sum_dist: 5719437.758928529
+========= Current scale: 8.499999999999837 =========
+Generating new point cloud and mesh with scale: 8.499999999999837
+Done
+Current sum_dist:  63248428319.08675  Current cnt:  11058  Current av_sum_dist: 5719698.708544651
+========= Current scale: 8.399999999999835 =========
+Generating new point cloud and mesh with scale: 8.399999999999835
+Done
+Current sum_dist:  63246790537.793785  Current cnt:  11053  Current av_sum_dist: 5722137.92977416
+========= Current scale: 8.299999999999834 =========
+Generating new point cloud and mesh with scale: 8.299999999999834
+Done
+Current sum_dist:  63291625695.20317  Current cnt:  11061  Current av_sum_dist: 5722052.770563527
+========= Current scale: 8.199999999999832 =========
+Generating new point cloud and mesh with scale: 8.199999999999832
+Done
+Current sum_dist:  63346148419.81943  Current cnt:  11061  Current av_sum_dist: 5726982.046814884
+========= Current scale: 8.099999999999831 =========
+Generating new point cloud and mesh with scale: 8.099999999999831
+Done
+Current sum_dist:  63331188688.497665  Current cnt:  11054  Current av_sum_dist: 5729255.354486852
+========= Current scale: 7.9999999999998295 =========
+Generating new point cloud and mesh with scale: 7.9999999999998295
+Done
+Current sum_dist:  63341287997.59533  Current cnt:  11046  Current av_sum_dist: 5734319.02929525
+========= Current scale: 7.899999999999828 =========
+Generating new point cloud and mesh with scale: 7.899999999999828
+Done
+Current sum_dist:  63343925226.46797  Current cnt:  11051  Current av_sum_dist: 5731963.191246763
+========= Current scale: 7.799999999999827 =========
+Generating new point cloud and mesh with scale: 7.799999999999827
+Done
+Current sum_dist:  63318681911.2884  Current cnt:  11039  Current av_sum_dist: 5735907.411114086
+========= Current scale: 7.699999999999825 =========
+Generating new point cloud and mesh with scale: 7.699999999999825
+Done
+Current sum_dist:  63269763209.72477  Current cnt:  11027  Current av_sum_dist: 5737713.177629887
+========= Current scale: 7.599999999999824 =========
+Generating new point cloud and mesh with scale: 7.599999999999824
+Done
+Current sum_dist:  63287620787.48505  Current cnt:  11030  Current av_sum_dist: 5737771.603579787
+========= Current scale: 7.499999999999822 =========
+Generating new point cloud and mesh with scale: 7.499999999999822
+Done
+Current sum_dist:  63362675601.47061  Current cnt:  11044  Current av_sum_dist: 5737294.060256303
+========= Current scale: 7.399999999999821 =========
+Generating new point cloud and mesh with scale: 7.399999999999821
+Done
+Current sum_dist:  63404548389.90712  Current cnt:  11047  Current av_sum_dist: 5739526.4225497525
+========= Current scale: 7.2999999999998195 =========
+Generating new point cloud and mesh with scale: 7.2999999999998195
+Done
+Current sum_dist:  63440944881.03578  Current cnt:  11059  Current av_sum_dist: 5736589.64472699
+========= Current scale: 7.199999999999818 =========
+Generating new point cloud and mesh with scale: 7.199999999999818
+Done
+Current sum_dist:  63389637319.34966  Current cnt:  11046  Current av_sum_dist: 5738696.117992908
+========= Current scale: 7.099999999999817 =========
+Generating new point cloud and mesh with scale: 7.099999999999817
+Done
+Current sum_dist:  63348769154.202034  Current cnt:  11034  Current av_sum_dist: 5741233.38356009
+========= Current scale: 6.999999999999815 =========
+Generating new point cloud and mesh with scale: 6.999999999999815
+Done
+Current sum_dist:  63318612347.62013  Current cnt:  11024  Current av_sum_dist: 5743705.76447933
+========= Current scale: 6.899999999999814 =========
+Generating new point cloud and mesh with scale: 6.899999999999814
+Done
+Current sum_dist:  63240473304.76972  Current cnt:  11024  Current av_sum_dist: 5736617.680040794
+========= Current scale: 6.799999999999812 =========
+Generating new point cloud and mesh with scale: 6.799999999999812
+Done
+Current sum_dist:  63217196836.053116  Current cnt:  11021  Current av_sum_dist: 5736067.220402243
+========= Current scale: 6.699999999999811 =========
+Generating new point cloud and mesh with scale: 6.699999999999811
+Done
+Current sum_dist:  63218669460.4153  Current cnt:  11015  Current av_sum_dist: 5739325.416288271
+========= Current scale: 6.59999999999981 =========
+Generating new point cloud and mesh with scale: 6.59999999999981
+Done
+Current sum_dist:  63244977575.60608  Current cnt:  11017  Current av_sum_dist: 5740671.469148233
+========= Current scale: 6.499999999999808 =========
+Generating new point cloud and mesh with scale: 6.499999999999808
+Done
+Current sum_dist:  63329103336.20763  Current cnt:  11029  Current av_sum_dist: 5742053.072464197
+========= Current scale: 6.399999999999807 =========
+Generating new point cloud and mesh with scale: 6.399999999999807
+Done
+Current sum_dist:  63352042154.86933  Current cnt:  11037  Current av_sum_dist: 5739969.389767992
+========= Current scale: 6.299999999999805 =========
+Generating new point cloud and mesh with scale: 6.299999999999805
+Done
+Current sum_dist:  63342403900.02318  Current cnt:  11036  Current av_sum_dist: 5739616.156218121
+========= Current scale: 6.199999999999804 =========
+Generating new point cloud and mesh with scale: 6.199999999999804
+Done
+Current sum_dist:  63408624482.87732  Current cnt:  11041  Current av_sum_dist: 5743014.625747425
+========= Current scale: 6.0999999999998025 =========
+Generating new point cloud and mesh with scale: 6.0999999999998025
+Done
+Current sum_dist:  63417158701.51535  Current cnt:  11049  Current av_sum_dist: 5739628.808174075
+========= Current scale: 5.999999999999801 =========
+Generating new point cloud and mesh with scale: 5.999999999999801
+Done
+Current sum_dist:  63343043138.80102  Current cnt:  11030  Current av_sum_dist: 5742796.295448869
+========= Current scale: 5.8999999999998 =========
+Generating new point cloud and mesh with scale: 5.8999999999998
+Done
+Current sum_dist:  64026266146.71003  Current cnt:  11040  Current av_sum_dist: 5799480.629230981
+========= Current scale: 5.799999999999798 =========
+Generating new point cloud and mesh with scale: 5.799999999999798
+Done
+Current sum_dist:  64126408637.641464  Current cnt:  11039  Current av_sum_dist: 5809077.691606256
+========= Current scale: 5.699999999999797 =========
+Generating new point cloud and mesh with scale: 5.699999999999797
+Done
+Current sum_dist:  64163879074.99313  Current cnt:  11044  Current av_sum_dist: 5809840.553693692
+========= Current scale: 5.599999999999795 =========
+Generating new point cloud and mesh with scale: 5.599999999999795
+Done
+Current sum_dist:  64176139733.70741  Current cnt:  11036  Current av_sum_dist: 5815163.078443948
+========= Current scale: 5.499999999999794 =========
+Generating new point cloud and mesh with scale: 5.499999999999794
+Done
+Current sum_dist:  64247980533.436295  Current cnt:  11044  Current av_sum_dist: 5817455.68031839
+========= Current scale: 5.3999999999997925 =========
+Generating new point cloud and mesh with scale: 5.3999999999997925
+Done
+Current sum_dist:  64209730346.97139  Current cnt:  11032  Current av_sum_dist: 5820316.383880655
+========= Current scale: 5.299999999999791 =========
+Generating new point cloud and mesh with scale: 5.299999999999791
+Done
+Current sum_dist:  64184933372.03477  Current cnt:  11038  Current av_sum_dist: 5814906.085525889
+========= Current scale: 5.19999999999979 =========
+Generating new point cloud and mesh with scale: 5.19999999999979
+Done
+Current sum_dist:  64189089698.588066  Current cnt:  11035  Current av_sum_dist: 5816863.588453835
+========= Current scale: 5.099999999999788 =========
+Generating new point cloud and mesh with scale: 5.099999999999788
+Done
+Current sum_dist:  64108752153.05832  Current cnt:  11036  Current av_sum_dist: 5809056.91854461
+========= Current scale: 4.999999999999787 =========
+Generating new point cloud and mesh with scale: 4.999999999999787
+Done
+Current sum_dist:  64067652509.74905  Current cnt:  11029  Current av_sum_dist: 5809017.364198844
+========= Current scale: 4.899999999999785 =========
+Generating new point cloud and mesh with scale: 4.899999999999785
+Done
+Current sum_dist:  64103158677.66034  Current cnt:  11025  Current av_sum_dist: 5814345.458291187
+========= Current scale: 4.799999999999784 =========
+Generating new point cloud and mesh with scale: 4.799999999999784
+Done
+Current sum_dist:  64138313266.62752  Current cnt:  11029  Current av_sum_dist: 5815424.178676899
+========= Current scale: 4.699999999999783 =========
+Generating new point cloud and mesh with scale: 4.699999999999783
+Done
+Current sum_dist:  64194756197.94583  Current cnt:  11034  Current av_sum_dist: 5817904.313752567
+========= Current scale: 4.599999999999781 =========
+Generating new point cloud and mesh with scale: 4.599999999999781
+Done
+Current sum_dist:  64262786763.24657  Current cnt:  11048  Current av_sum_dist: 5816689.605652296
+========= Current scale: 4.49999999999978 =========
+Generating new point cloud and mesh with scale: 4.49999999999978
+Done
+Current sum_dist:  64256544649.08682  Current cnt:  11045  Current av_sum_dist: 5817704.359355982
+========= Current scale: 4.399999999999778 =========
+Generating new point cloud and mesh with scale: 4.399999999999778
+Done
+Current sum_dist:  64288744439.70477  Current cnt:  11047  Current av_sum_dist: 5819565.894786347
+========= Current scale: 4.299999999999777 =========
+Generating new point cloud and mesh with scale: 4.299999999999777
+Done
+Current sum_dist:  64331046668.06244  Current cnt:  11045  Current av_sum_dist: 5824449.675696011
+========= Current scale: 4.1999999999997755 =========
+Generating new point cloud and mesh with scale: 4.1999999999997755
+Done
+Current sum_dist:  64369924137.372375  Current cnt:  11049  Current av_sum_dist: 5825859.7282444
+========= Current scale: 4.099999999999774 =========
+Generating new point cloud and mesh with scale: 4.099999999999774
+Done
+Current sum_dist:  64464521088.89789  Current cnt:  11064  Current av_sum_dist: 5826511.305937987
+========= Current scale: 3.9999999999997726 =========
+Generating new point cloud and mesh with scale: 3.9999999999997726
+Done
+Current sum_dist:  64646707702.36024  Current cnt:  11084  Current av_sum_dist: 5832434.834207889
+========= Current scale: 3.899999999999771 =========
+Generating new point cloud and mesh with scale: 3.899999999999771
+Done
+Current sum_dist:  64515710117.75356  Current cnt:  11066  Current av_sum_dist: 5830084.051848325
+========= Current scale: 3.79999999999977 =========
+Generating new point cloud and mesh with scale: 3.79999999999977
+Done
+Current sum_dist:  64629826758.85509  Current cnt:  11078  Current av_sum_dist: 5834069.936708349
+========= Current scale: 3.6999999999997684 =========
+Generating new point cloud and mesh with scale: 3.6999999999997684
+Done
+Current sum_dist:  64728130913.66766  Current cnt:  11081  Current av_sum_dist: 5841361.872905664
+========= Current scale: 3.599999999999767 =========
+Generating new point cloud and mesh with scale: 3.599999999999767
+Done
+Current sum_dist:  64719731603.4118  Current cnt:  11077  Current av_sum_dist: 5842712.973134585
+========= Current scale: 3.4999999999997655 =========
+Generating new point cloud and mesh with scale: 3.4999999999997655
+Done
+Current sum_dist:  64681133514.20652  Current cnt:  11068  Current av_sum_dist: 5843976.645663762
+========= Current scale: 3.399999999999764 =========
+Generating new point cloud and mesh with scale: 3.399999999999764
+Done
+Current sum_dist:  64609353586.34974  Current cnt:  11062  Current av_sum_dist: 5840657.529049877
+========= Current scale: 3.2999999999997627 =========
+Generating new point cloud and mesh with scale: 3.2999999999997627
+Done
+Current sum_dist:  64651961686.15158  Current cnt:  11062  Current av_sum_dist: 5844509.282783546
+========= Current scale: 3.1999999999997613 =========
+Generating new point cloud and mesh with scale: 3.1999999999997613
+Done
+Current sum_dist:  64686305031.93634  Current cnt:  11059  Current av_sum_dist: 5849200.20182081
+========= Current scale: 3.09999999999976 =========
+Generating new point cloud and mesh with scale: 3.09999999999976
+Done
+Current sum_dist:  64707245567.80397  Current cnt:  11062  Current av_sum_dist: 5849506.921696255
+========= Current scale: 2.9999999999997584 =========
+Generating new point cloud and mesh with scale: 2.9999999999997584
+Done
+Current sum_dist:  64667735984.434296  Current cnt:  11049  Current av_sum_dist: 5852813.465873319
+========= Current scale: 2.899999999999757 =========
+Generating new point cloud and mesh with scale: 2.899999999999757
+Done
+Current sum_dist:  64701286345.93585  Current cnt:  11056  Current av_sum_dist: 5852142.397425457
+========= Current scale: 2.7999999999997556 =========
+Generating new point cloud and mesh with scale: 2.7999999999997556
+Done
+Current sum_dist:  64725408191.89227  Current cnt:  11060  Current av_sum_dist: 5852206.888959519
+========= Current scale: 2.699999999999754 =========
+Generating new point cloud and mesh with scale: 2.699999999999754
+Done
+Current sum_dist:  64730001816.573166  Current cnt:  11050  Current av_sum_dist: 5857918.71643196
+========= Current scale: 2.5999999999997527 =========
+Generating new point cloud and mesh with scale: 2.5999999999997527
+Done
+Current sum_dist:  64856516060.81438  Current cnt:  11056  Current av_sum_dist: 5866182.711723442
+========= Current scale: 2.4999999999997513 =========
+Generating new point cloud and mesh with scale: 2.4999999999997513
+Done
+Current sum_dist:  64960143855.55958  Current cnt:  11076  Current av_sum_dist: 5864946.176919428
+========= Current scale: 2.39999999999975 =========
+Generating new point cloud and mesh with scale: 2.39999999999975
+Done
+Current sum_dist:  64951956093.473526  Current cnt:  11071  Current av_sum_dist: 5866855.396393598
+========= Current scale: 2.2999999999997485 =========
+Generating new point cloud and mesh with scale: 2.2999999999997485
+Done
+Current sum_dist:  64905341768.77215  Current cnt:  11069  Current av_sum_dist: 5863704.198100293
+========= Current scale: 2.199999999999747 =========
+Generating new point cloud and mesh with scale: 2.199999999999747
+Done
+Current sum_dist:  64959567294.83696  Current cnt:  11062  Current av_sum_dist: 5872316.696333119
+========= Current scale: 2.0999999999997456 =========
+Generating new point cloud and mesh with scale: 2.0999999999997456
+Done
+Current sum_dist:  64861917624.90292  Current cnt:  11034  Current av_sum_dist: 5878368.4633771
+========= Current scale: 1.9999999999997442 =========
+Generating new point cloud and mesh with scale: 1.9999999999997442
+Done
+Current sum_dist:  64929769409.7682  Current cnt:  11039  Current av_sum_dist: 5881852.46940558
+========= Current scale: 1.8999999999997428 =========
+Generating new point cloud and mesh with scale: 1.8999999999997428
+Done
+Current sum_dist:  64910790780.951904  Current cnt:  11032  Current av_sum_dist: 5883864.283987664
+========= Current scale: 1.7999999999997414 =========
+Generating new point cloud and mesh with scale: 1.7999999999997414
+Done
+Current sum_dist:  64823502728.59928  Current cnt:  11025  Current av_sum_dist: 5879682.787174538
+========= Current scale: 1.69999999999974 =========
+Generating new point cloud and mesh with scale: 1.69999999999974
+Done
+Current sum_dist:  64789995819.36458  Current cnt:  11017  Current av_sum_dist: 5880910.939399526
+========= Current scale: 1.5999999999997385 =========
+Generating new point cloud and mesh with scale: 1.5999999999997385
+Done
+Current sum_dist:  64775267926.05582  Current cnt:  11011  Current av_sum_dist: 5882777.942607921
+========= Current scale: 1.499999999999737 =========
+Generating new point cloud and mesh with scale: 1.499999999999737
+Done
+Current sum_dist:  64791966409.665115  Current cnt:  11017  Current av_sum_dist: 5881089.807539722
+========= Current scale: 1.3999999999997357 =========
+Generating new point cloud and mesh with scale: 1.3999999999997357
+Done
+Current sum_dist:  64698354832.3111  Current cnt:  11014  Current av_sum_dist: 5874192.376276657
+========= Current scale: 1.2999999999997343 =========
+Generating new point cloud and mesh with scale: 1.2999999999997343
+Done
+Current sum_dist:  64707420884.96514  Current cnt:  11015  Current av_sum_dist: 5874482.150246494
+========= Current scale: 1.1999999999997328 =========
+Generating new point cloud and mesh with scale: 1.1999999999997328
+Done
+Current sum_dist:  64709399263.7343  Current cnt:  11016  Current av_sum_dist: 5874128.473468982
+========= Current scale: 1.0999999999997314 =========
+Generating new point cloud and mesh with scale: 1.0999999999997314
+Done
+Current sum_dist:  64730439280.11763  Current cnt:  11011  Current av_sum_dist: 5878706.682419184
+========= Current scale: 0.99999999999973 =========
+Generating new point cloud and mesh with scale: 0.99999999999973
+Done
+Current sum_dist:  64718621208.87311  Current cnt:  11010  Current av_sum_dist: 5878167.230597013
+========= Current scale: 0.8999999999997286 =========
+Generating new point cloud and mesh with scale: 0.8999999999997286
+Done
+Current sum_dist:  64758541795.326324  Current cnt:  11010  Current av_sum_dist: 5881793.07859458
+========= Current scale: 0.7999999999997272 =========
+Generating new point cloud and mesh with scale: 0.7999999999997272
+Done
+Current sum_dist:  64707158896.32687  Current cnt:  10991  Current av_sum_dist: 5887285.860824936
+========= Current scale: 0.6999999999997257 =========
+Generating new point cloud and mesh with scale: 0.6999999999997257
+Done
+Current sum_dist:  64742423293.59868  Current cnt:  10998  Current av_sum_dist: 5886745.162174821
+========= Current scale: 0.5999999999997243 =========
+Generating new point cloud and mesh with scale: 0.5999999999997243
+Done
+Current sum_dist:  64902988877.205505  Current cnt:  11010  Current av_sum_dist: 5894912.704559991
+========= Current scale: 0.4999999999997229 =========
+Generating new point cloud and mesh with scale: 0.4999999999997229
+Done
+Current sum_dist:  64916924036.296585  Current cnt:  11014  Current av_sum_dist: 5894037.04705798
+Best scale is:  19.9  av_sum_dist:  5446108.767344023
+Calculation time: 5213.962276159
+Traceback (most recent call last):
+  File "find_scale_pointcloud.py", line 240, in <module>
+    main()
+  File "find_scale_pointcloud.py", line 237, in main
+    save_as_csv(best_scale, "./csv/best_scale")
+  File "find_scale_pointcloud.py", line 39, in save_as_csv
+    np.savetxt(filename, data, delimiter=",")
+  File "/usr/local/lib/python3.5/dist-packages/numpy/lib/npyio.py", line 1370, in savetxt
+    "Expected 1D or 2D array, got %dD array instead" % X.ndim)
+ValueError: Expected 1D or 2D array, got 0D array instead

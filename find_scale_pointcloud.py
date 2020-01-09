@@ -144,8 +144,9 @@ def calc_D_mesh2cpoints(invA, A, c_points, n_M, n_c):
     cnt = 0
     rs_init = c_points.T
     rs = rs_init
+    step = 100 # 全部のmeshを使う必要はない
 
-    for j in range(n_M):
+    for j in range(0,n_M, step):
         coefficient = cp.matmul(invA[:,:,j], rs)
         triangle = A[:,:,j] # [a,b,c]
         pos = coefficient > 0
@@ -188,9 +189,9 @@ def calc_d(coeffi, triangle):
     return d_square
 
 def loop(mesh, ls_pcd):
-    min_scale = 0.5
-    max_scale = 20
-    interval = -0.1
+    min_scale = 10
+    max_scale = 1000
+    interval = -10
     best_scale = min_scale
     av_sum_dist = np.Inf
     scales = np.arange(max_scale, min_scale + interval, interval)
@@ -232,9 +233,11 @@ def main():
 
     start = timer()
     (best_scale, av_sum_dist) = loop(mesh, ls_pcd)
+    duration = timer()-start
+    print("============== FINAL RESULT ==================")
     print("Best scale is: ", best_scale, " av_sum_dist: ", av_sum_dist)
-    print("Calculation time:", timer()-start)
-    save_as_csv(best_scale, "./csv/best_scale")
+    print("Calculation time:", duration)
+    save_as_csv([duration, best_scale], "./csv/duration_and_best_scale")
 
 if __name__ == "__main__":
     main()
