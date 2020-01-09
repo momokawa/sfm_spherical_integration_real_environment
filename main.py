@@ -6,6 +6,7 @@ import sys
 
 def main():	
     # After running move_and_take_data.py in Blender
+    # python3 main.py &> log_$(date +"%m-%d-%Y").txt
 
     # OpenMVG
     os.system("./sfm_openmvg.sh")
