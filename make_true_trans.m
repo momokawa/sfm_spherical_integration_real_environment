@@ -1,6 +1,12 @@
-function T_0_true = make_true_trans()
+function T_10_deg = make_true_trans()
     load_true_trans_img();
     T_0_true = calc_true_T();
+    
+    T_10_deg = zeros(4,4,2);
+    for i=1:2
+        T_10_deg(:,:,i) = T_0_true(:,:,i)*inv(T_0_true(:,:,i+1));
+    end
+    save mat/T_10_deg.mat T_10_deg
 end
 
 function load_true_trans_img()
