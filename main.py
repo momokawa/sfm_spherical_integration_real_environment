@@ -14,7 +14,7 @@ def main():
 	
     eng = matlab.engine.start_matlab()
 
-    # calibration, extraction of laser, generation of true translation
+    # calibration, extraction of laser, generation of true translation, and integration of cross sections with the true translation
     eng.main(nargout=0)
 
     eng.make_sfm_output(nargout=0) # Convert openMVG's pose into spherical thing
@@ -28,7 +28,7 @@ def main():
         sys.exit()
 
     # Compare with True pose of cameras
-    # eng.
+    eng.compare_with_true(nargout=0)
 
 if __name__ == "__main__":	
     main()
