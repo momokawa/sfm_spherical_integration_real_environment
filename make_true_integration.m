@@ -13,6 +13,7 @@ function make_true_integration()
     
     T_0 = T_10_deg(:,:,1);
     T = eye(4,4);
+    T_all_true = zeros(4,4,img.n);
     
     for i=1:img.n
         if i==1
@@ -20,6 +21,7 @@ function make_true_integration()
         else
             T = T_0*T;
         end
+        T_all_true(:,:,i) = T;
         d3 = (laser(i).d3)';
         d3(4,: ) = 1;
         univ_d3 = T*d3; % in the 1st cam's coordinate
@@ -31,4 +33,5 @@ function make_true_integration()
         all_integrated = [all_integrated; univ_d3_];
     end
     csvwrite("./csv/integrated_cross_sections/true/all_true.csv", all_integrated);
+    save mat/T_all_true.mat T_all_true
 end

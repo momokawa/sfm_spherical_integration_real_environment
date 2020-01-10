@@ -1,6 +1,11 @@
 function compare_with_true()
     true_pcd = csvread("./csv/integrated_cross_sections/true/all_true.csv");
     estimated_pcd = csvread("./csv/integrated_cross_sections/all_integrated_best_scale.csv");
+    
+    a = csvread("./csv/duration_and_best_scale.csv");
+    scale = a(2); % Best Scale
+    pcd_scale = scale*pcd;
+    csvwrite("./ply/sfm_points_spherical_1stcam_best_scale.csv", pcd_scale);
 
     fs = 20; % フォントサイズ
     % maxErr = 150; % カラーバーの最大値
