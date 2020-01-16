@@ -5,7 +5,9 @@ function laser_detection_dense()
     R = R_laser_hori();
     [new_pos, original_pos] = convert_rotation(img, R);
     new_pos_int = round(new_pos);
+    new_pos_int(new_pos_int==0) = 1;
     save mat/lookup_pos_laser_detection.mat new_pos_int original_pos
+    img_rotaed = rotate_equi_laser_direction(new_pos_int, original_pos, img(:,:,2)); % green
 end
 
 function R_laser_detection = R_laser_hori()
