@@ -14,7 +14,7 @@ from timeit import default_timer as timer
 # from numba import jit, cuda, f8
 
 
-home_dir= "/home/momoko/Documents/research_programs/20191224_experiment/"
+home_dir="/home/momoko/Documents/research_programs/20191224_experiment/"
 
 spherical_cross_sections_dir = home_dir + "csv/spherical_cross_sections/"
 openmvg_resonst_dir = home_dir + "openMVG_output/reconstruct/"
@@ -54,9 +54,9 @@ class lightsectionPointClass():
         T_new = copy.deepcopy(self.T)
         self.current_scale = scale
         for i in range(self.num_frame):
-            trans_tmp = copy.deepcopy(T_new[1:3,3,i])
+            trans_tmp = copy.deepcopy(T_new[0:3,3,i])
             trans = scale*trans_tmp
-            T_new[1:3,3,i] = trans
+            T_new[0:3,3,i] = trans
         
         self.T_current = T_new
     
@@ -188,65 +188,78 @@ def calc_d(coeffi, triangle):
     d_square = cp.square(cp.linalg.norm(inside))
     return d_square
 
-def loop(mesh, ls_pcd):
 
-    ##### range of scales ########
-    min_scale = 10
-    max_scale = 1000
-    interval = -10
+def get_order_best_scale(cross_section, sfm_pcd):
+    av_dist_cs = cp.linalg.norm(cp.average(cross_section, axis=0)) # Calculate average distance of 1st cross sectional shape's points 
+    av_dist_sfm = cp.linalg.norm(cp.average(sfm_pcd, axis=0))
+
+    scale = int(cp.ceil(av_dist_cs / av_dist_sfm))
+    order = len(str(scale))
+    order_10 = pow(10, order-1)
+
+    return order_10
+
+def loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum_dist, interval):
+    # Scale Settings
+    interval = interval / 10  # new interval
     scales = np.arange(max_scale, min_scale + interval, interval)
-    ##############################
+    print("interval", interval)
+    print(scales)
+
+    for current_scale in scales:
+        if current_scale <0:
+            break
+
+        print("\n * Current scale: " + str(current_scale))
+        current_ls_pcd = gen_new_pointcloud(current_scale, ls_pcd)
+        c_points = cp.asarray(current_ls_pcd.integrated_points) # cross sections points
+        # (current_sum_dist, cnt) = dist_triangle2pcd(current_sfm_mesh, current_ls_pcd)
+        (D_current, cnt) = calc_D_mesh2cpoints(invA/current_scale, current_scale*A, c_points, n_M, n_c)
+        av_current_sum_dist = D_current / cnt
+        print("Current sum_dist: ", D_current, " Current cnt: ", cnt, " Current av_sum_dist:", av_current_sum_dist)
+        if av_current_sum_dist < av_sum_dist:
+            av_sum_dist = av_current_sum_dist
+            best_scale = current_scale
+            save_as_csv(current_ls_pcd.integrated_points, "./csv/integrated_cross_sections/all_integrated_best_scale")
+            print("#### Update best scale!: " ,best_scale, " sum_dist:" , D_current ,  " cnt: " , cnt, "av_sum_dist: ", av_sum_dist)    
+
+    print("\n=========== Middle Result: Best Scale:" , best_scale, " ============== \n")
+
+    return best_scale, av_sum_dist, interval
+
+
+def loop(mesh, ls_pcd):
+    # SfM Points 
+    mesh_index_triangle_vertices = cp.asarray(mesh.triangles)
+    mesh_points_init = cp.asarray(mesh.vertices)
+
+    # Get rough scale before scale optimization
+    d0 = ls_pcd.cross_sections[0]
+    order_scale = get_order_best_scale(cp.asarray(d0), mesh_points_init) # 1,10,100,1000 ...etc
+
+    ##### setting of range of scales ########
+    min_scale = np.ceil(order_scale / 10)
+    max_scale = int(order_scale * 10)
+    interval = -1*max_scale
+    #########################################
 
     best_scale = min_scale
     av_sum_dist = np.Inf
     
-    mesh_index_triangle_vertices = cp.asarray(mesh.triangles)
-    mesh_points_init = cp.asarray(mesh.vertices)
     n_M = mesh_index_triangle_vertices.shape[0] # number of mesh triangle
     n_c = ls_pcd.n_all_p # number of points of cross sections
     print("n_M: ", n_M, "\n")
     print("n_c: ", n_c, "\n")
     (A, invA) = calc_A(mesh_points_init, mesh_index_triangle_vertices, n_M)
 
-    print(scales)
-    for current_scale in scales:
-        print("\n========= Current scale: " + str(current_scale), "=========")
-        current_ls_pcd = gen_new_pointcloud(current_scale, ls_pcd)
-        c_points = cp.asarray(current_ls_pcd.integrated_points) # cross sections points
-        # (current_sum_dist, cnt) = dist_triangle2pcd(current_sfm_mesh, current_ls_pcd)
-        (D_current, cnt) = calc_D_mesh2cpoints(invA/current_scale, current_scale*A, c_points, n_M, n_c)
-        av_current_sum_dist = D_current / cnt
-        print("Current sum_dist: ", D_current, " Current cnt: ", cnt, " Current av_sum_dist:", av_current_sum_dist)
-        if av_current_sum_dist < av_sum_dist:
-            av_sum_dist = av_current_sum_dist
-            best_scale = current_scale
-            save_as_csv(current_ls_pcd.integrated_points, "./csv/integrated_cross_sections/all_integrated_best_scale")
-            print("Update best scale!: " ,best_scale, " sum_dist:" , D_current ,  " cnt: " , cnt, "av_sum_dist: ", av_sum_dist)
+    min_interval = 0.001 # minimum interval of scale searching
 
-    print("\n\n =========== Middle Result: Best Scale:" , best_scale, " ============== ")
-    ###### Next Best Scale ######
-    min_scale = best_scale + interval
-    max_scale = best_scale - interval
-    second_interval = -0.01
-    scales = np.arange(max_scale, min_scale + second_interval, second_interval)
-    #############################
+    while abs(interval) > min_interval:
+        (best_scale, av_sum_dist, interval) = loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum_dist, interval)
+        min_scale = best_scale + interval
+        max_scale = best_scale - interval
 
-    print(scales)
-    for current_scale in scales:
-        print("\n========= Current scale: " + str(current_scale), "=========")
-        current_ls_pcd = gen_new_pointcloud(current_scale, ls_pcd)
-        c_points = cp.asarray(current_ls_pcd.integrated_points) # cross sections points
-        # (current_sum_dist, cnt) = dist_triangle2pcd(current_sfm_mesh, current_ls_pcd)
-        (D_current, cnt) = calc_D_mesh2cpoints(invA/current_scale, current_scale*A, c_points, n_M, n_c)
-        av_current_sum_dist = D_current / cnt
-        print("Current sum_dist: ", D_current, " Current cnt: ", cnt, " Current av_sum_dist:", av_current_sum_dist)
-        if av_current_sum_dist < av_sum_dist:
-            av_sum_dist = av_current_sum_dist
-            best_scale = current_scale
-            save_as_csv(current_ls_pcd.integrated_points, "./csv/integrated_cross_sections/all_integrated_best_scale")
-            print(" #### Update best scale!: " ,best_scale, " sum_dist:" , D_current ,  " cnt: " , cnt, "av_sum_dist: ", av_sum_dist, "#######")
-
-    return best_scale, av_sum_dist
+    return best_scale, av_sum_dist, interval
 
 def main():
     # in case of just point cloud
@@ -259,12 +272,13 @@ def main():
     ls_pcd = generate_lspcd()
 
     start = timer()
-    (best_scale, av_sum_dist) = loop(mesh, ls_pcd)
+    (best_scale, av_sum_dist, second_interval) = loop(mesh, ls_pcd)
     duration = timer()-start
     print("============== FINAL RESULT ==================")
     print("Best scale is: ", best_scale, " av_sum_dist: ", av_sum_dist)
     print("Calculation time:", duration)
-    save_as_csv([duration, best_scale], "./csv/duration_and_best_scale")
+    save_as_csv([duration, best_scale, second_interval], "./csv/duration_and_best_scale")
+
 
 if __name__ == "__main__":
     main()

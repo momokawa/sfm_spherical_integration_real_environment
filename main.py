@@ -8,6 +8,11 @@ def main():
     # After running move_and_take_data.py in Blender
     # python3 main.py &> log_$(date +"%m-%d-%Y").txt
 
+    # Change home directory names
+    new_home_dir="/home/momoko/Documents/research_programs/20191224_experiment/"
+    command_str = "./change_home_dir_name.sh " + new_home_dir
+    os.system(command_str)
+
     # OpenMVG
     os.system("./sfm_openmvg.sh")
     os.system("./openmvg_bin2json.sh")
