@@ -14,7 +14,7 @@ from timeit import default_timer as timer
 # from numba import jit, cuda, f8
 
 
-home_dir="/home/momoko/Documents/research_programs/20191224_experiment/"
+home_dir="/home/momoko/Documents/research_programs/20191224_exp_2/sfm_spherical_integration_real_environment/"
 
 spherical_cross_sections_dir = home_dir + "csv/spherical_cross_sections/"
 openmvg_resonst_dir = home_dir + "openMVG_output/reconstruct/"
