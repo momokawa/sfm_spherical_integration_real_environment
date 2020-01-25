@@ -7,5 +7,5 @@ start = timer()
 os.system("./sfm_openmvg.sh")
 os.system("./openmvg_bin2json.sh")
 sfm_duration = timer() - start
-
-np.savetxt("./csv/sfm_duration.txt", sfm_duration)
+print("sfm duration:", sfm_duration)
+np.savetxt("./csv/sfm_duration.txt", (sfm_duration, sfm_duration))
