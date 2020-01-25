@@ -2,21 +2,29 @@ import run_openmvg
 import get_lightsection	
 import find_scale_pointcloud
 import matlab.engine
+import os
 import sys
+from timeit import default_timer as timer
+import numpy as np
 
+# python3 calc_duration_time.py is just for obtaining calc duration independently
 def main():	
     # After running move_and_take_data.py in Blender
     # python3 main.py &> log_$(date +"%m-%d-%Y").txt
 
     # Change home directory names
-    new_home_dir="/home/momoko/Documents/research_programs/20191224_experiment/"
+    new_home_dir="/home/momoko/Documents/research_programs/20191224_exp_2/sfm_spherical_integration_real_environment/"
     command_str = "./change_home_dir_name.sh " + new_home_dir
     os.system(command_str)
-
+    start = timer()
     # OpenMVG
     os.system("./sfm_openmvg.sh")
     os.system("./openmvg_bin2json.sh")
-	
+
+	sfm_duration = timer() - start
+    np.savetxt("./csv/sfm_duration.txt", sfm_duration)
+
+    # Start matlab
     eng = matlab.engine.start_matlab()
 
     # calibration, extraction of laser, generation of true translation, and integration of cross sections with the true translation
