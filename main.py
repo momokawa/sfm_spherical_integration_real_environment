@@ -21,7 +21,7 @@ def main():
     os.system("./sfm_openmvg.sh")
     os.system("./openmvg_bin2json.sh")
 
-	sfm_duration = timer() - start
+    sfm_duration = timer() - start
     np.savetxt("./csv/sfm_duration.txt", sfm_duration)
 
     # Start matlab

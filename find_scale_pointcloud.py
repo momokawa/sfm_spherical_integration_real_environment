@@ -259,7 +259,7 @@ def loop(mesh, ls_pcd):
         min_scale = best_scale + interval
         max_scale = best_scale - interval
 
-    return best_scale, av_sum_dist, interval
+    return best_scale, av_sum_dist, interval, n_M, n_c
 
 def main():
     # in case of just point cloud
@@ -272,12 +272,12 @@ def main():
     ls_pcd = generate_lspcd()
 
     start = timer()
-    (best_scale, av_sum_dist, second_interval) = loop(mesh, ls_pcd)
+    (best_scale, av_sum_dist, second_interval, n_M, n_c) = loop(mesh, ls_pcd)
     duration = timer()-start
     print("============== FINAL RESULT ==================")
     print("Best scale is: ", best_scale, " av_sum_dist: ", av_sum_dist)
     print("Calculation time:", duration)
-    save_as_csv([duration, best_scale, second_interval], "./csv/duration_and_best_scale")
+    save_as_csv([duration, best_scale, second_interval, n_M, n_c], "./csv/duration_and_best_scale")
 
 
 if __name__ == "__main__":
