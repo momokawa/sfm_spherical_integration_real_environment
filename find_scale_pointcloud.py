@@ -82,7 +82,8 @@ class lightsectionPointClass():
             intgrt_p[cnt:(cnt+n_tmp),:] = intgrt_p_tmp.T[:,0:3]
             cnt += n_tmp
         self.integrated_points = intgrt_p
-        save_as_csv(intgrt_p, integrated_cross_sections_dir + "all_integrated_" +str(self.current_scale))
+        profix = "{0:.4f}".format(self.current_scale) 
+        save_as_csv(intgrt_p, integrated_cross_sections_dir + "all_integrated_" + profix)
         
 
 def change_scale_lightsection(ls_pcd, scale):
@@ -144,7 +145,7 @@ def calc_D_mesh2cpoints(invA, A, c_points, n_M, n_c):
     cnt = 0
     rs_init = c_points.T
     rs = rs_init
-    step = 50 # 全部のmeshを使う必要はない
+    step = 10 # 全部のmeshを使う必要はない
 
     for j in range(0,n_M, step):
         coefficient = cp.matmul(invA[:,:,j], rs)
@@ -206,7 +207,13 @@ def loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum
     print("interval", interval)
     print(scales)
 
+    # For Saving D
+    D_output = np.zeros([4, scales.size])
+    D_output[0,:] = scales # For Saving line 1:  sum_D, line2: cnt, lind3: average
+
+    i = 0
     for current_scale in scales:
+        i += 1
         if current_scale <0:
             break
 
@@ -216,6 +223,13 @@ def loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum
         # (current_sum_dist, cnt) = dist_triangle2pcd(current_sfm_mesh, current_ls_pcd)
         (D_current, cnt) = calc_D_mesh2cpoints(invA/current_scale, current_scale*A, c_points, n_M, n_c)
         av_current_sum_dist = D_current / cnt
+
+        # For Saving
+        D_output[0, i-1] = current_scale
+        D_output[1, i-1] = D_current
+        D_output[2, i-1] = cnt
+        D_output[3, i-1] = av_current_sum_dist
+
         print("Current sum_dist: ", D_current, " Current cnt: ", cnt, " Current av_sum_dist:", av_current_sum_dist)
         if av_current_sum_dist < av_sum_dist:
             av_sum_dist = av_current_sum_dist
@@ -224,6 +238,9 @@ def loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum
             print("#### Update best scale!: " ,best_scale, " sum_dist:" , D_current ,  " cnt: " , cnt, "av_sum_dist: ", av_sum_dist)    
 
     print("\n=========== Middle Result: Best Scale:" , best_scale, " ============== \n")
+
+    filename = "./csv/D_output/D_{0:.4f}".format(interval)
+    save_as_csv(D_output, filename)
 
     return best_scale, av_sum_dist, interval
 
@@ -259,7 +276,7 @@ def loop(mesh, ls_pcd):
         min_scale = best_scale + interval
         max_scale = best_scale - interval
 
-    return best_scale, av_sum_dist, interval
+    return best_scale, av_sum_dist, interval, n_M, n_c
 
 def main():
     # in case of just point cloud
@@ -272,12 +289,12 @@ def main():
     ls_pcd = generate_lspcd()
 
     start = timer()
-    (best_scale, av_sum_dist, second_interval) = loop(mesh, ls_pcd)
+    (best_scale, av_sum_dist, second_interval, n_M, n_c) = loop(mesh, ls_pcd)
     duration = timer()-start
     print("============== FINAL RESULT ==================")
     print("Best scale is: ", best_scale, " av_sum_dist: ", av_sum_dist)
     print("Calculation time:", duration)
-    save_as_csv([duration, best_scale, second_interval], "./csv/duration_and_best_scale")
+    save_as_csv([duration, best_scale, second_interval, n_M, n_c], "./csv/duration_and_best_scale")
 
 
 if __name__ == "__main__":

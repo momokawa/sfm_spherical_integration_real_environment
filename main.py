@@ -33,7 +33,7 @@ def main():
         sys.exit()
 
     # Compare with True pose of cameras
-    eng.compare_with_true(nargout=0)
+    eng.plot_evaluations(nargout=0)
 
 if __name__ == "__main__":	
     main()
