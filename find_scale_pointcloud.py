@@ -145,7 +145,7 @@ def calc_D_mesh2cpoints(invA, A, c_points, n_M, n_c):
     cnt = 0
     rs_init = c_points.T
     rs = rs_init
-    step = 10 # 全部のmeshを使う必要はない
+    step = 5 # 全部のmeshを使う必要はない
 
     for j in range(0,n_M, step):
         coefficient = cp.matmul(invA[:,:,j], rs)
@@ -202,7 +202,7 @@ def get_order_best_scale(cross_section, sfm_pcd):
 
 def loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum_dist, interval):
     # Scale Settings
-    interval = interval / 10  # new interval
+    interval = interval / 2  # new interval
     scales = np.arange(max_scale, min_scale + interval, interval)
     print("interval", interval)
     print(scales)
@@ -284,7 +284,10 @@ def main():
     # pcd = o3d.io.read_point_cloud(filename)
     # mesh = generate_mesh(pcd, 10)
     print("Start finding best scale....")
-    sfm_filename =  home_dir + 'ply/' +"mesh_sfm_points_spherical_1stcam.ply" # mesh file given by CloudCompare
+    # mesh1:
+    # floor mesh: mesh_sfm_points_spherical_1stcam_only_floor.ply
+    # sfm_filename =  home_dir + 'ply/' +"mesh_sfm_points_spherical_1stcam.ply" # mesh file given by CloudCompare
+    sfm_filename =  home_dir + 'ply/' + "mesh_sfm_points_spherical_1stcam_only_floor.ply"
     mesh = o3d.io.read_triangle_mesh(sfm_filename)
     ls_pcd = generate_lspcd()
 
