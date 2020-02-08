@@ -138,6 +138,42 @@ def gen_new_pointcloud(scale,ls_pcd):
     print("Done")
     return ls_pcd_new
 
+def calc_d(coeffi, triangle):
+    # Caculate norm(d)^2
+    a = coeffi[0]*triangle[:,0] + coeffi[1]*triangle[:,1] + coeffi[2]*triangle[:,2]
+    b = cp.sqrt(cp.square(coeffi[0])+cp.square(coeffi[1])+cp.square(coeffi[2]))
+    inside =  a - ( a / b )
+    d_square = cp.square(cp.linalg.norm(inside))
+    return d_square
+
+def calc_d_mean(coefficient, triangle, index):
+    # Caluclate average distance of crossing vectors (index) of mesh_j
+    # triangle = [\vec{a}, \vec{b}, \vec{c}]
+    # coeffi = 3 x length(index) array [[alpha,beta,gamma]^T,[..]^T..]
+    # coeffi = 3*length(index) x 1 vector [ alpha, beta, gannma, alpha, beta, ganma,...]^T
+    
+    coeffi = coefficient[:,index] # Coefficient for the index [a;b;c, a;b;c, ...]
+    # print(coeffi)
+    coeffi_vec = coeffi.reshape((-1,1), order='F') # [a;b;c;a;b;c;a;b;c...]
+    # print("coeffici_vec", coeffi_vec)
+    n = index.size # number of vector crossing the mesh_j
+    triangle_matrix = cp.zeros([3*n, 3*n])
+    # print("triangle", triangle)
+
+    for i in range(n):
+        triangle_matrix[3*i:3*i+3, 3*i] = triangle[:,0] # a
+        triangle_matrix[3*i:3*i+3, 3*i+1] = triangle[:,1] # b
+        triangle_matrix[3*i:3*i+3, 3*i+2] = triangle[:,2] # c
+    
+    d_vec_tmp = cp.dot(triangle_matrix, coeffi_vec)
+    tmp_matrix = d_vec_tmp.reshape((3,-1), order='F')
+    deno = cp.linalg.norm(coeffi, ord=2, axis=0)
+    d_candi = tmp_matrix - ( tmp_matrix / deno)
+    d_candi_norm =  cp.linalg.norm(d_candi, ord=2, axis=0)
+    d_mean = cp.mean(d_candi_norm)
+ 
+    return d_mean
+
 def calc_D_mesh2cpoints(invA, A, c_points, n_M, n_c):
     # D = summed d_j
     # A = [a, b, c] three corners of the triangle
@@ -145,9 +181,9 @@ def calc_D_mesh2cpoints(invA, A, c_points, n_M, n_c):
     cnt = 0
     rs_init = c_points.T
     rs = rs_init
-    step = 5 # 全部のmeshを使う必要はない
+    # step = 0 # 全部のmeshを使う必要はない
 
-    for j in range(0,n_M, step):
+    for j in range(0,n_M): # range(0,n_M, step) 全部使う
         coefficient = cp.matmul(invA[:,:,j], rs)
         triangle = A[:,:,j] # [a,b,c]
         pos = coefficient > 0
@@ -158,14 +194,19 @@ def calc_D_mesh2cpoints(invA, A, c_points, n_M, n_c):
         # print(j,"th")
         # cnt += 1
         b = a[0]
-        index = b[0] # 採用したr_iのindex i 一番はやいindexのやつを使う
-        coeffi = coefficient[:, index] # alpha, beta, gamma
+        # index = b[0] # 採用したr_iのindex i 一番はやいindexのやつを使う
+        # coeffi = coefficient[:, index] # alpha, beta, gamma
+        index_all = b
+        
         # Calcualte d_j
-        d_j = calc_d(coeffi, triangle)
+        # d_j = calc_d(coeffi, triangle)
+        d_j = calc_d_mean(coefficient, triangle, index_all)
+
         # Dに足す
+        # Ds[j] = ave_d_j # 
         Ds[j] = d_j
         cnt += 1
-        del coefficient, triangle, pos, crossing_index, a, index, d_j
+        del coefficient, triangle, pos, crossing_index, a, d_j
     D = cp.sum(Ds)
     return D,  cnt
 
@@ -181,15 +222,6 @@ def calc_A(mesh_points, mesh_index_triangle_vertices, n_M):
 
     return A, invA
 
-def calc_d(coeffi, triangle):
-    # Caculate norm(d)^2
-    a = coeffi[0]*triangle[:,0] + coeffi[1]*triangle[:,1] + coeffi[2]*triangle[:,2]
-    b = cp.sqrt(cp.square(coeffi[0])+cp.square(coeffi[1])+cp.square(coeffi[2]))
-    inside =  a - ( a / b )
-    d_square = cp.square(cp.linalg.norm(inside))
-    return d_square
-
-
 def get_order_best_scale(cross_section, sfm_pcd):
     av_dist_cs = cp.linalg.norm(cp.average(cross_section, axis=0)) # Calculate average distance of 1st cross sectional shape's points 
     av_dist_sfm = cp.linalg.norm(cp.average(sfm_pcd, axis=0))
@@ -200,9 +232,9 @@ def get_order_best_scale(cross_section, sfm_pcd):
 
     return order_10
 
-def loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum_dist, interval):
+def loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum_dist, interval, interval_step):
     # Scale Settings
-    interval = interval / 2  # new interval
+    interval = interval / interval_step  # new interval
     scales = np.arange(max_scale, min_scale + interval, interval)
     print("interval", interval)
     print(scales)
@@ -257,7 +289,10 @@ def loop(mesh, ls_pcd):
     ##### setting of range of scales ########
     min_scale = np.ceil(order_scale / 10)
     max_scale = int(order_scale * 10)
-    interval = -1*max_scale
+    min_interval = 0.001 # minimum interval of scale searching
+    interval_step = 2
+    init_interval = 10
+    interval = -1*init_interval * interval_step
     #########################################
 
     best_scale = min_scale
@@ -269,12 +304,12 @@ def loop(mesh, ls_pcd):
     print("n_c: ", n_c, "\n")
     (A, invA) = calc_A(mesh_points_init, mesh_index_triangle_vertices, n_M)
 
-    min_interval = 0.001 # minimum interval of scale searching
+
 
     while abs(interval) > min_interval:
-        (best_scale, av_sum_dist, interval) = loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum_dist, interval)
-        min_scale = best_scale + interval
-        max_scale = best_scale - interval
+        (best_scale, av_sum_dist, interval) = loop_one(min_scale, max_scale, best_scale, A, invA, ls_pcd, n_M, n_c, av_sum_dist, interval, interval_step)
+        min_scale = best_scale + 10*interval
+        max_scale = best_scale - 10*interval
 
     return best_scale, av_sum_dist, interval, n_M, n_c
 
