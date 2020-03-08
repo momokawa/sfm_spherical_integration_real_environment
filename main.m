@@ -1,4 +1,5 @@
 function main()
+    gen_input_images(); % Move oritinal input images to the designed directory.
     make_setup();
     disp("Laser calibration...");
     calibrate_spherical_laser_plane();

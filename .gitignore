@@ -3,6 +3,7 @@
 *.exr
 *.jpg
 *.csv
+*.JPG
 openMVG_output/
 __pycache__/
 *.pyc
