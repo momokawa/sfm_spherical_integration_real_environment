@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "openmvg_bin2json.sh..."
-homedir=/home/momoko/Documents/research_programs/20191224_experiment/
+home_dir="/home/momoko/Documents/research_programs/icpr2020/sfm_spherical_integration_real_environment/"
 input="${homedir}openMVG_output/reconstruct/sfm_data.bin"
 output="${homedir}openMVG_output/reconstruct/sfm_data.json"
 openMVG_main_ConvertSfM_DataFormat -i $input -o $output

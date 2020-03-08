@@ -1,5 +1,5 @@
 #!/bin/bash
-top_dir="/home/momoko/Documents/research_programs/20191224_experiment/"
+home_dir="/home/momoko/Documents/research_programs/icpr2020/sfm_spherical_integration_real_environment/"
 dataset="${top_dir}images/sfm_input/"
 matches="${top_dir}openMVG_output/matches/"
 reconstruct_dir="${top_dir}openMVG_output/reconstruct/"
