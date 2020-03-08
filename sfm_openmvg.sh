@@ -15,7 +15,7 @@ secon_image="env_00001.png"
 && echo "##### openMVG_main_ComputeFeatures ####" \
 && openMVG_main_ComputeFeatures -i ${matches}sfm_data.json -o $matches -m AKAZE_FLOAT -p HIGH \
 && echo "#### openMVG_main_ComputeMatches ####" \
-&& openMVG_main_ComputeMatches -i ${matches}sfm_data.json -o $matches -g a \
+&& openMVG_main_ComputeMatches -i ${matches}sfm_data.json -o $matches -g a -v 10\
 && echo "#### openMVG_main_INcrementalfM ####" \
 && openMVG_main_IncrementalSfM -i ${matches}sfm_data.json -m $matches -o $reconstruct_dir
 # -a ${init_image} -b ${secon_image}

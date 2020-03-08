@@ -4,6 +4,7 @@
 *.jpg
 *.csv
 *.JPG
+*.MP4
 openMVG_output/
 __pycache__/
 *.pyc

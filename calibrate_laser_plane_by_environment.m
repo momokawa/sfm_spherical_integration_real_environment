@@ -87,7 +87,7 @@ function RLCalc = getRLcalc(img_size)
     % 1. left side plane: x=0
     thred = 140;
     RLCalc_1 = struct(...
-        'Start', 140, ... % サンプリング開始�?
+        'Start', 130, ... % サンプリング開始�?
         'End', 210, ... % サンプリング終�?�?
         'Step', 0.1, ... % サンプリングス�?�?プ�?
         'CenterX', img_size(2)/2, ... % サンプリング中�?点X座�?
@@ -104,7 +104,7 @@ function RLCalc = getRLcalc(img_size)
 
     RLCalc_2 = struct(...
         'Start', 218, ... % サンプリング開始�?
-        'End', 330, ... % サンプリング終�?�?
+        'End', 335, ... % サンプリング終�?�?
         'Step', 0.1, ... % サンプリングス�?�?プ�?
         'CenterX', img_size(2)/2, ... % サンプリング中�?点X座�?
         'CenterY',img_size(1)/2, ... % サンプリング中�?点Y座�?
@@ -119,8 +119,8 @@ function RLCalc = getRLcalc(img_size)
 
     % 3. right side plane: x=hori
     RLCalc_3 = struct(...
-        'Start', 335, ... % サンプリング開始�?
-        'End', 395, ... % サンプリング終�?�?
+        'Start', 338, ... % サンプリング開始�?
+        'End', 390, ... % サンプリング終�?�?
         'Step', 0.1, ... % サンプリングス�?�?プ�?
         'CenterX', img_size(2)/2, ... % サンプリング中�?点X座�?
         'CenterY',img_size(1)/2, ... % サンプリング中�?点Y座�?
@@ -135,8 +135,8 @@ function RLCalc = getRLcalc(img_size)
 
     % 4. buttom plane: y=veri
     RLCalc_4 = struct(...
-        'Start', 400, ... % サンプリング開始�?
-        'End', 495, ... % サンプリング終�?�?
+        'Start', 395, ... % サンプリング開始�?
+        'End', 490, ... % サンプリング終�?�?
         'Step', 0.1, ... % サンプリングス�?�?プ�?
         'CenterX', img_size(2)/2, ... % サンプリング中�?点X座�?
         'CenterY',img_size(1)/2, ... % サンプリング中�?点Y座�?
