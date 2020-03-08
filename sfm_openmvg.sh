@@ -1,8 +1,10 @@
 #!/bin/bash
 home_dir="/home/momoko/Documents/research_programs/icpr2020/sfm_spherical_integration_real_environment/"
+
 dataset="${home_dir}images/sfm_input/"
 matches="${home_dir}openMVG_output/matches/"
 reconstruct_dir="${home_dir}openMVG_output/reconstruct/"
+
 init_image"env_00000.png"
 secon_image="env_00001.png"
 # If you want to use mask, put mask.png in the same folder
