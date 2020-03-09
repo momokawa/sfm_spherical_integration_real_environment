@@ -1,4 +1,5 @@
 function main()
+    filter2sfm_input();
     gen_input_images(); % Move oritinal input images to the designed directory.
     make_setup();
     gen_img_from_video();

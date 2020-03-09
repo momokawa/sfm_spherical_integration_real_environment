@@ -8,7 +8,7 @@ function make_laser_points_3d()
     h = setup.img_size(1);
     for i = 1:img.n
         fprintf("%dth\n", i);
-        d3 = light_section_method(laser(i).d2, h, normal);
+        d3 = light_section_method(laser(i).d2, h, normal); % d2: rotated one. Including rotating back the d3 to original spherical rotation
         laser(i).d3 = d3;
         num =  pad(num2str(i-1),5,'left','0');
         str  = sprintf('%sspherical_cross_sections/d3_%s.csv', setup.csv_dir, num);

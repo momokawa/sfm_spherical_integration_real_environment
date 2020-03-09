@@ -10,16 +10,24 @@ function make_images()
         'path', [] ...
         );
     
+    img_sfm_input = struct( ...
+        'n', [], ...
+        'path', [] ...  
+        );
+    
 
     [img, cnt] = save_img_path(setup.img_laser_dir, img);
     img.n = cnt;
     [img_nolaser, cnt] = save_img_path(setup.img_no_laser_dir, img_nolaser);
     img_nolaser.n = cnt;
-
+    [img_sfm_input, cnt] = save_img_path(setup.sfm_input, img_sfm_input);
+    img_sfm_input.n = cnt;
+    
     setup.n = cnt; % the number of images
     
     save mat/img.mat img
     save mat/img_nolaser.mat img_nolaser
+    save mat/img_sfm_input.mat img_sfm_input
     save mat/setup.mat setup
 end
 
