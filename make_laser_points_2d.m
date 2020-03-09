@@ -16,12 +16,12 @@ function make_laser_points_2d()
         fprintf('%dth\n', i); 
         I_laser = imread(img.path{i});
         I_nolaser = imread(img_nolaser.path{i});
-        M = get_diff_mask_img(I_laser, I_nolaser, 0);
+        M = get_diff_mask_img(I_laser, I_nolaser, 0); % Diff binary image
         disp(img.path{i});
         
         % points_d2 = make_laser_points_2d_single(I, M, debug, i);
         points_d2 = make_laser_points_2d_vertical_search(I_laser, M, debug, i);
-        laser(i).d2 = points_d2; 
+        laser(i).d2 = points_d2; % ATTENTION: THIS d2 IS 90 deg ROTATED ONE!!!
         laser(i).np = size(points_d2, 1);
         num_all = num_all + laser(i).np;
     end
@@ -39,13 +39,15 @@ function diff_mask = get_diff_mask_img(img_no_laser, img_with_laser, debug)
     
     diff_gray_bin = diff_gray>256/40; % binary image % TODO: You can change the threshhold
     % half hidden image
-    % half_mask = zeros(size(img_no_laser,1),size(img_no_laser,2));
+    half_mask = ones(size(img_no_laser,1),size(img_no_laser,2));
     
-    % img_size = size(half_mask);
-    % half_mask(:,img_size(2)/4:img_size(2)/4*3) = 1;
+    img_size = size(half_mask);
+    half_mask(1:img_size(1)/4,:) = 0;
+    half_mask(img_size(1)*3/4:end,:) = 0;
 
-    diff_mask = cast(diff_gray_bin, 'uint8');
-    % mask = logical(half_mask) .* diff_gray_bin;
+
+    mask = logical(half_mask) .* diff_gray_bin;
+    diff_mask = cast(mask, 'uint8');
     if (debug)
         figure;
         imshow(diff_mask);
