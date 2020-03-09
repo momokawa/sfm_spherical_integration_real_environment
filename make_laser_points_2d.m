@@ -18,7 +18,8 @@ function make_laser_points_2d()
         fprintf('%dth\n', i); 
         I = imread(img.path{i});
         disp(img.path{i});
-        points_d2 = make_laser_points_2d_single(I, M, debug, i);
+        % points_d2 = make_laser_points_2d_single(I, M, debug, i);
+        points_d2 = make_laser_points_2d_vertical_search(I, M, debug, i);
         laser(i).d2 = points_d2; 
         laser(i).np = size(points_d2, 1);
         num_all = num_all + laser(i).np;

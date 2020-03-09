@@ -7,7 +7,7 @@ function main()
     make_images();
     make_mask();
     make_laser();
-    make_laser_points_2d();
-    make_laser_points_3d();
+    make_laser_points_2d(); % detect laser vertically
+    make_laser_points_3d(); % rotate back => 3d recostruction
     make_true(); % estimate true movement of 10 degree
 end
