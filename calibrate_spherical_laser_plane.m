@@ -1,12 +1,12 @@
 function calibrate_spherical_laser_plane()
     % images used for laser calibration
     imgname = './images/calibration_laser2cam/laser_on.jpg';
-    fprintf("Reading image %s for laser plane calibration...\n", imgname);
+    fprintf("Reading laser on image %s for laser plane calibration...\n", imgname);
     img_laser = imread(imgname);
     
     % laser off
     imgname = './images/calibration_laser2cam/laser_off.jpg';
-    fprintf("Reading image %s for laser plane calibration...\n", imgname);
+    fprintf("Reading laser off image %s for laser plane calibration...\n", imgname);
     img_laser_off = imread(imgname);
     %%%% Variables %%%%
     vert = 2140; % mm
@@ -15,7 +15,7 @@ function calibrate_spherical_laser_plane()
     %%%%%%%%%%%%%%%%%%%
     mask = zeros(size(img_laser,1), size(img_laser,2));
     x_length = size(img_laser,2);
-    mask(:, (1/4*x_length)+300:3/4*(x_length)) = 1;
+    mask(:, (1/4*x_length)+300:3/4*(x_length)) = 1; % hide top and bottom part 
     T = get_extrinsic_plane(img_laser_off,vert, hori);
     calibrate_laser_plane_by_environment(img_laser, mask, T, vert, hori, debug);  
 end

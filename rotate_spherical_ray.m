@@ -14,6 +14,6 @@ function rot_r = rotate_spherical_ray(ray, rot_deg)
     
     R = R_z*(R_y*R_x); % this was applied R when generating rotated laser images
     
-    rot_r = R'*ray'; % converted ray inv(R)
+    rot_r = R*ray'; % converted ray inv(R)
     rot_r = rot_r';
 end
